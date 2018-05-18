@@ -28,6 +28,14 @@ To get staryted we have provided the code samples in Python, Java. API requests 
 
 ### Authentication
 
+#### HTTP Header Parameters
+With an OAuth 2.0 Access Token, an application can now invoke our APIs by including the access token in the HTTP header. Our APIs currently only supports application/json content type.
+
+Parameter | Description
+--------- | -----------
+Authorization | OAuth 2.0 Access Token. Bearer keyword followed by a space and                   the OAuth 2.0 Access Token. Bearer <Access-Token>
+Content-Type  |  Only application/json content type is supported.
+
 > To authorize, use this code:
 
 ```ruby
