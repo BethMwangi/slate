@@ -288,7 +288,25 @@
 
 <p>Our APIS are built on REST and API request parameters are encoded in JSON. We have language bindings in Shell and Python!
 To get staryted we have provided the code samples in Python, Java. API requests  have been provided. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-<h1 id='getting-started'>Getting Started</h1><h3 id='authentication'>Authentication</h3>
+<h1 id='getting-started'>Getting Started</h1><h3 id='authentication'>Authentication</h3><h4 id='http-header-parameters'>HTTP Header Parameters</h4>
+<p>With an OAuth 2.0 Access Token, an application can now invoke our APIs by including the access token in the HTTP header. Our APIs currently only supports application/json content type.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Authorization</td>
+<td>OAuth 2.0 Access Token. Bearer keyword followed by a space and                   the OAuth 2.0 Access Token. Bearer <Access-Token></td>
+</tr>
+<tr>
+<td>Content-Type</td>
+<td>Only application/json content type is supported.</td>
+</tr>
+</tbody></table>
+
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
