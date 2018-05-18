@@ -238,7 +238,7 @@ This endpoint retrieves all store types.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-store name| true | The store name is passed
+store id| true | The store id name is passed
 
 
 ## Get a Specific store
