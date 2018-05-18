@@ -122,7 +122,7 @@ This endpoint retrieves all users.
 
 ### HTTP Request
 
-`GET http://example.com/api/users/user/`
+`GET http://mookh.com/api/users/user/`
 
 ### Query Parameters
 
@@ -181,7 +181,7 @@ This endpoint retrieves a specific user.
 
 ### HTTP Request
 
-`GET http://example.com/users/<pk>`
+`GET http://mookh.com/users/<pk>`
 
 ### URL Parameters
 
@@ -202,7 +202,7 @@ api.stores.get()
 ```
 
 ```shell
-curl "http://example.com/api/stores/store_type/"
+curl "http://mookh.com/api/stores/store_type/"
   -H "Authorization: auth"
 ```
 
@@ -232,7 +232,7 @@ This endpoint retrieves all store types.
 
 ### HTTP Request
 
-`GET http://example.com/api/stores/store_type/`
+`GET http://mookh.com/api/stores/store_type/`
 
 ### Query Parameters
 
@@ -287,7 +287,7 @@ This endpoint retrieves a specific store.
 
 ### HTTP Request
 
-`GET http://example.com/stores/store/<pk>`
+`GET http://mookh.com/stores/store/<pk>`
 
 ### URL Parameters
 
@@ -309,7 +309,7 @@ api.users.get()
 ```
 
 ```shell
-curl "http://example.com/api/users/user/"
+curl "http://mookh.com/api/users/user/"
   -H "Authorization: auth"
 ```
 
@@ -353,7 +353,7 @@ This endpoint retrieves all users.
 
 ### HTTP Request
 
-`GET http://example.com/api/users/user/`
+`GET http://mookh.com/api/users/user/`
 
 ### Query Parameters
 
