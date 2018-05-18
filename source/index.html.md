@@ -9,7 +9,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/lord/slate'>Documentation Powered by</a>
 
 includes:
   - errors
@@ -19,221 +19,402 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Mookh API! You can use our API to access Mookh API endpoints, which can get information on various stores, products.... in our database.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Our APIS are built on REST and API request parameters are encoded in JSON. We have language bindings in Shell and Python!
+To get staryted we have provided the code samples in Python, Java. API requests  have been provided. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+# Getting Started
 
-# Authentication
+### Authentication
 
 > To authorize, use this code:
 
 ```ruby
-require 'kittn'
+require 'mookh'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Mookh::APIClient.authorize!('auth')
 ```
 
 ```python
-import kittn
+import mookh
 
-api = kittn.authorize('meowmeowmeow')
+api = mookh.authorize('auth')
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: auth"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const mookh = require('mookh');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = mookh.authorize('auth');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+HTTP requests to the REST API are protected with HTTP Basic authentication
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: meowmeowmeow`
+# Users
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+## Get All Users
 
 ```python
-import kittn
+import mookh
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+api = mookh.authorize('auth')
+api.users.get()
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "http://example.com/api/users/user/"
+  -H "Authorization: auth"
 ```
 
-```javascript
-const kittn = require('kittn');
+<!-- ```javascript
+const mookh = require('mookh');
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
+let api = users.authorize('mookh');
+let kittens = api.users.get();
+``` -->
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+   {
+            "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
+            "first_name": "betty",
+            "last_name": "wanjiku",
+            "phone_number": "0756444333444",
+            "email": "wanjikngib@gmail.com",
+            "profile_photo": null,
+            "groups": [
+                1
+            ]
+        },
+         {
+            "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
+            "first_name": "betty",
+            "last_name": "wanjiku",
+            "phone_number": "0756444333444",
+            "email": "wanjikumib@gmail.com",
+            "profile_photo": null,
+            "groups": [
+                1
+            ]
+        }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all users.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET http://example.com/api/users/user/`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+is_active | true | If set to false, the result will also include users
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
 
-## Get a Specific Kitten
+## Get a Specific User
 
 ```ruby
-require 'kittn'
+require 'mookh'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+api = Mookh::APIClient.authorize!('auth')
+api.users.get({<pk>})
 ```
 
 ```python
-import kittn
+import mookh
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+api = mookh.authorize('auth')
+api.users.get({<pk>})
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "http://mookh.com/api/users/user/<pk>/"
+  -H "Authorization: auth"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const mookh = require('mookh');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+let api = mookh.authorize('mookh');
+let max = api.users.get(<pk>);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
+    "first_name": "betty",
+    "last_name": "wanjiku",
+    "phone_number": "0756444333444",
+    "email": "wanjikumwangib@gmail.com",
+    "profile_photo": null,
+    "groups": [
+        1
+    ]
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific user.
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET http://example.com/users/<pk>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the user to retrieve
 
-## Delete a Specific Kitten
 
-```ruby
-require 'kittn'
+# stores
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+## Get All stores types
 
 ```python
-import kittn
+import mookh
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
+api = mookh.authorize('auth')
+api.stores.get()
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+curl "http://example.com/api/stores/store_type/"
+  -H "Authorization: auth"
+```
+
+
+The above command returns JSON structured like this:
+
+```json
+[
+    {
+            "id": "71965c7f-cc49-4815-a5f9-1b454478ac93",
+            "store_name": "Sauti sol",
+            "store_label": "ticketing",
+            "icon": null,
+            "description": "selling music albums"
+        },
+        {
+            "id": "daf67422-0e40-4a6e-969e-7a58406e229a",
+            "store_name": "mymookh",
+            "store_label": "ticketing",
+            "icon": null,
+            "description": "selling tickets"
+        }
+]
+```
+
+This endpoint retrieves all store types.
+
+### HTTP Request
+
+`GET http://example.com/api/stores/store_type/`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+store name| true | The store name is passed
+
+
+## Get a Specific store
+
+```ruby
+require 'mookh'
+
+api = Mookh::APIClient.authorize!('auth')
+api.stores.get({<pk>})
+```
+
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.stores.get({<pk>})
+```
+
+```shell
+curl "http://mookh.com/api/stores/store/<pk>/"
+  -H "Authorization: auth"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const mookh = require('mookh');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+let api = mookh.authorize('mookh');
+let max = api.stores.get(<pk>);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+    "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
+    "manager_fk": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
+    "manager_name": "wanjiku",
+    "store_name": "sauti sol",
+    "store_type-fk": "daf67422-0e40-4a6e-969e-7a58406e229a",
+    "country": "KE",
 }
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint retrieves a specific store.
+
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`GET http://example.com/stores/store/<pk>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+ID | The ID of the store to retrieve
+
+
+
+# Users
+
+## Get All Users
+
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.users.get()
+```
+
+```shell
+curl "http://example.com/api/users/user/"
+  -H "Authorization: auth"
+```
+
+<!-- ```javascript
+const mookh = require('mookh');
+
+let api = users.authorize('mookh');
+let kittens = api.users.get();
+``` -->
+
+> The above command returns JSON structured like this:
+
+```json
+[
+   {
+            "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
+            "first_name": "betty",
+            "last_name": "wanjiku",
+            "phone_number": "0756444333444",
+            "email": "wanjikngib@gmail.com",
+            "profile_photo": null,
+            "groups": [
+                1
+            ]
+        },
+         {
+            "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
+            "first_name": "betty",
+            "last_name": "wanjiku",
+            "phone_number": "0756444333444",
+            "email": "wanjikumib@gmail.com",
+            "profile_photo": null,
+            "groups": [
+                1
+            ]
+        }
+]
+```
+
+This endpoint retrieves all users.
+
+### HTTP Request
+
+`GET http://example.com/api/users/user/`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+is_active | true | If set to false, the result will also include users
+
+
+## Get a Specific User
+
+```ruby
+require 'mookh'
+
+api = Mookh::APIClient.authorize!('auth')
+api.users.get({<pk>})
+```
+
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.users.get({<pk>})
+```
+
+```shell
+curl "http://mookh.com/api/users/user/<pk>/"
+  -H "Authorization: auth"
+```
+
+```javascript
+const mookh = require('mookh');
+
+let api = mookh.authorize('mookh');
+let max = api.users.get(<pk>);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
+    "first_name": "betty",
+    "last_name": "wanjiku",
+    "phone_number": "0756444333444",
+    "email": "wanjikumwangib@gmail.com",
+    "profile_photo": null,
+    "groups": [
+        1
+    ]
+}
+```
+
+This endpoint retrieves a specific user.
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+### HTTP Request
+
+`GET http://example.com/users/<pk>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the user to retrieve
+
+
+# products
+
+
+# Digital content
 
