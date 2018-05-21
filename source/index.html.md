@@ -177,7 +177,7 @@ let max = api.users.get(<pk>);
 
 This endpoint retrieves a specific user.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
 
 ### HTTP Request
 
@@ -191,6 +191,41 @@ ID | The ID of the user to retrieve
 
 
 # stores
+
+## Create a store type
+
+### HTTP Request
+
+`POST http://mookh.com/api/stores/user/request`
+
+### POST Parameters
+##### Required Parameters
+
+Parameter  | Default  | Description
+---------  | -------  | -----------
+store_name | Required | The store namee is required
+description|          | A short description of the store
+
+
+
+```python
+
+import requests
+access_token = "Access_Token"
+api_url ="htttps://mookh.api/request"
+header =  { "Authorization": "Bearer %s" % access_token }
+request = {
+  "store_name": " ",
+  "store_label":" ",
+  "icon":" ",
+  "description": " ",
+}
+
+
+response = requests.post(api_url, json = request, headers=headers)
+
+print (response.text)
+```
 
 ## Get All stores types
 
