@@ -247,6 +247,9 @@
             <a href="#stores" class="toc-h1 toc-link" data-title="stores">stores</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#create-a-store-type" class="toc-h2 toc-link" data-title="create-a-store-type">Create a store type</a>
+                  </li>
+                  <li>
                     <a href="#get-all-stores-types" class="toc-h2 toc-link" data-title="get-all-stores-types">Get All stores types</a>
                   </li>
                   <li>
@@ -414,8 +417,6 @@ let kittens = api.users.get();
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific user.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET http://mookh.com/users/&lt;pk&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
@@ -430,7 +431,44 @@ let kittens = api.users.get();
 <td>The ID of the user to retrieve</td>
 </tr>
 </tbody></table>
-<h1 id='stores'>stores</h1><h2 id='get-all-stores-types'>Get All stores types</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<h1 id='stores'>stores</h1><h2 id='create-a-store-type'>Create a store type</h2><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/stores/user/request</code></p>
+<h3 id='post-parameters'>POST Parameters</h3><h5 id='required-parameters'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>store_name</td>
+<td>Required</td>
+<td>The store namee is required</td>
+</tr>
+<tr>
+<td>description</td>
+<td></td>
+<td>A short description of the store</td>
+</tr>
+</tbody></table>
+<pre class="highlight python tab-python"><code>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">access_token</span> <span class="o">=</span> <span class="s">"Access_Token"</span>
+<span class="n">api_url</span> <span class="o">=</span><span class="s">"htttps://mookh.api/request"</span>
+<span class="n">header</span> <span class="o">=</span>  <span class="p">{</span> <span class="s">"Authorization"</span><span class="p">:</span> <span class="s">"Bearer </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="n">access_token</span> <span class="p">}</span>
+<span class="n">request</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"store_name"</span><span class="p">:</span> <span class="s">" "</span><span class="p">,</span>
+  <span class="s">"store_label"</span><span class="p">:</span><span class="s">" "</span><span class="p">,</span>
+  <span class="s">"icon"</span><span class="p">:</span><span class="s">" "</span><span class="p">,</span>
+  <span class="s">"description"</span><span class="p">:</span> <span class="s">" "</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">request</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</code></pre><h2 id='get-all-stores-types'>Get All stores types</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -456,7 +494,7 @@ let kittens = api.users.get();
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all store types.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET http://mookh.com/api/stores/store_type/</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -500,7 +538,7 @@ let kittens = api.users.get();
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific store.</p>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET http://mookh.com/stores/store/&lt;pk&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -557,7 +595,7 @@ let kittens = api.users.get();
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all users.</p>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET http://mookh.com/api/users/user/</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
 <table><thead>
@@ -606,7 +644,7 @@ let kittens = api.users.get();
 <p>This endpoint retrieves a specific user.</p>
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET http://example.com/users/&lt;pk&gt;</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
