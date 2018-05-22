@@ -33,7 +33,7 @@ With an OAuth 2.0 Access Token, an application can now invoke our APIs by includ
 
 Parameter | Description
 --------- | -----------
-Authorization | OAuth 2.0 Access Token. Bearer keyword followed by a space and                   the OAuth 2.0 Access Token. Bearer <Access-Token>
+Authorization | OAuth 2.0 Access Token. Bearer keyword followed by a space and the OAuth 2.0 Access Token. Bearer <Access-Token>
 Content-Type  |  Only application/json content type is supported.
 
 > To authorize, use this code:
@@ -63,7 +63,6 @@ let api = mookh.authorize('auth');
 ```
 
 HTTP requests to the REST API are protected with HTTP Basic authentication
-
 
 
 # Users
@@ -124,14 +123,16 @@ This endpoint retrieves all users.
 
 `GET http://mookh.com/api/users/user/`
 
-### Query Parameters
+<!-- ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
 is_active | true | If set to false, the result will also include users
-
+ -->
 
 ## Get a Specific User
+
++ Response 200 (application/json)
 
 ```ruby
 require 'mookh'
@@ -181,13 +182,13 @@ This endpoint retrieves a specific user.
 
 ### HTTP Request
 
-`GET http://mookh.com/users/<pk>`
+`GET http://mookh.com/users/b0d0cb74-0833-4af2-ab1f-51be03c1f64a`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the user to retrieve
+ID        | The ID of the user to retrieve. The ID is in UUID format
 
 
 # stores
@@ -203,8 +204,10 @@ ID | The ID of the user to retrieve
 
 Parameter  | Default  | Description
 ---------  | -------  | -----------
-store_name | Required | The store namee is required
+store_name | Required | The store name is required
 description|          | A short description of the store
+store_label|          | The store label is required
+icon       |          | An icon of the store
 
 
 
@@ -273,7 +276,7 @@ This endpoint retrieves all store types.
 
 Parameter | Default | Description
 --------- | ------- | -----------
-store id| true | The store id name is passed
+store id  | true    | The store id is passed
 
 
 ## Get a Specific store
@@ -328,132 +331,36 @@ This endpoint retrieves a specific store.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the store to retrieve
+ID        | The ID of the store to retrieve passed in UUID format
 
 
-
-# Users
-
-## Get All Users
-
-```python
-import mookh
-
-api = mookh.authorize('auth')
-api.users.get()
-```
-
-```shell
-curl "http://mookh.com/api/users/user/"
-  -H "Authorization: auth"
-```
-
-<!-- ```javascript
-const mookh = require('mookh');
-
-let api = users.authorize('mookh');
-let kittens = api.users.get();
-``` -->
-
-> The above command returns JSON structured like this:
-
-```json
-[
-   {
-            "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
-            "first_name": "betty",
-            "last_name": "wanjiku",
-            "phone_number": "0756444333444",
-            "email": "wanjikngib@gmail.com",
-            "profile_photo": null,
-            "groups": [
-                1
-            ]
-        },
-         {
-            "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
-            "first_name": "betty",
-            "last_name": "wanjiku",
-            "phone_number": "0756444333444",
-            "email": "wanjikumib@gmail.com",
-            "profile_photo": null,
-            "groups": [
-                1
-            ]
-        }
-]
-```
-
-This endpoint retrieves all users.
+## Create a Specific store
 
 ### HTTP Request
 
-`GET http://mookh.com/api/users/user/`
+`POST http://mookh.com/api/stores/store/request`
 
-### Query Parameters
+### POST Parameters
+##### Required Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-is_active | true | If set to false, the result will also include users
+Parameter     | Default   | Description
+---------     | -------   | -----------
+manager_fk    | Required  | This is the users/managers foreign key in UUID format
+manager_name  |           | The store name is required
+store_nama    |           | The name of the store
+store_description|        | A short description of the store
+store_type_fk  | Required | The store_type_fk maps the store to its type
+country        | Required | The origin of country , i.e KE, UG
 
 
-## Get a Specific User
-
-```ruby
-require 'mookh'
-
-api = Mookh::APIClient.authorize!('auth')
-api.users.get({<pk>})
-```
-
-```python
-import mookh
-
-api = mookh.authorize('auth')
-api.users.get({<pk>})
-```
-
-```shell
-curl "http://mookh.com/api/users/user/<pk>/"
-  -H "Authorization: auth"
-```
-
-```javascript
-const mookh = require('mookh');
-
-let api = mookh.authorize('mookh');
-let max = api.users.get(<pk>);
-```
-
-> The above command returns JSON structured like this:
+> The above POST request returns JSON structured like this:
 
 ```json
-{
-    "id": "b0d0cb74-0833-4af2-ab1f-51be03c1f64a",
-    "first_name": "betty",
-    "last_name": "wanjiku",
-    "phone_number": "0756444333444",
-    "email": "wanjikumwangib@gmail.com",
-    "profile_photo": null,
-    "groups": [
-        1
-    ]
-}
+
+
 ```
 
-This endpoint retrieves a specific user.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/users/<pk>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the user to retrieve
 
 
 # products
