@@ -247,6 +247,9 @@
                   <li>
                     <a href="#verify-a-user" class="toc-h2 toc-link" data-title="verify-a-user">Verify a user</a>
                   </li>
+                  <li>
+                    <a href="#get-user-roles" class="toc-h2 toc-link" data-title="get-user-roles">Get user roles</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -504,9 +507,22 @@ is_active | true | If set to false, the result will also include users
 <ul>
 <li>Response Status  200 (application/json)</li>
 </ul>
-<h1 id='stores'>stores</h1><h2 id='create-a-store-type'>Create a store type</h2><h3 id='http-request-5'>HTTP Request</h3>
+<h2 id='get-user-roles'>Get user roles</h2><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/users/user/user_roles</code></p>
+<h3 id='post-parameters-2'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="s2">"store_owner"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_agent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"super_admin"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<ul>
+<li>Response Status  200 (application/json)</li>
+</ul>
+<h1 id='stores'>stores</h1><h2 id='create-a-store-type'>Create a store type</h2><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST http://mookh.com/api/stores/user/request</code></p>
-<h3 id='post-parameters-2'>POST Parameters</h3><h5 id='required-parameters-3'>Required Parameters</h5>
+<h3 id='post-parameters-3'>POST Parameters</h3><h5 id='required-parameters-3'>Required Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -577,7 +593,7 @@ is_active | true | If set to false, the result will also include users
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves all store types.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET http://mookh.com/api/stores/store_type/</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -621,7 +637,7 @@ is_active | true | If set to false, the result will also include users
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific store.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET http://mookh.com/stores/store/&lt;pk&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -635,9 +651,9 @@ is_active | true | If set to false, the result will also include users
 <td>The ID of the store to retrieve passed in UUID format</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-specific-store'>Create a Specific store</h2><h3 id='http-request-8'>HTTP Request</h3>
+<h2 id='create-a-specific-store'>Create a Specific store</h2><h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST http://mookh.com/api/stores/store/request</code></p>
-<h3 id='post-parameters-3'>POST Parameters</h3>
+<h3 id='post-parameters-4'>POST Parameters</h3>
 <blockquote>
 <p>The above POST request returns JSON structured like this:</p>
 </blockquote>
