@@ -870,3 +870,44 @@ name        |  Required   | genre of media files
 }
 
 ```
+
+## create a media_file
+### HTTP Request
+
+`POST http://mookh.com/api/digital_content/media_files/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+##### Required Parameters
+
+Parameter   | Default     | Description
+---------   | -------     | -----------
+name        |  Required   | name asociated with the media files
+digital_media |  Required   | i.e music
+media_type |    Required     | i.e MP3, MP4
+publish__date |    Required  | Date file is posted
+metadata |    Required  | A JSON field that captures the media file data
+
+
+```json
+{
+    "id": "5dbf07b1-0922-47d2-9314-3aac87b8ec2b",
+    "name": "God's plan",
+    "digital_media": "c25ba93c-fe98-46e3-b027-922820246f99",
+    "media_type": "AUDIO",
+    "media_format": "mp3",
+    "description": "",
+    "file": "",
+    "media_player_url": "",
+    "thumbnail": "",
+    "publish_date": "2018-05-22T22:12:22.643277Z",
+    "is_published": true,
+    "metadata": {
+        "price": "9.20",
+        "size": "20mb"
+    },
+    "prices": []
+}
+
+```
