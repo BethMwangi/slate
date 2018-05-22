@@ -714,6 +714,5 @@ delivery_days  |  Required  | The number of delivery days
 
 
 
-
 # Digital content
 
