@@ -281,7 +281,64 @@
               </ul>
           </li>
           <li>
+            <a href="#tickets" class="toc-h1 toc-link" data-title="tickets">tickets</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-store-tickets" class="toc-h2 toc-link" data-title="create-store-tickets">Create store tickets</a>
+                  </li>
+                  <li>
+                    <a href="#create-store-schedule" class="toc-h2 toc-link" data-title="create-store-schedule">Create store schedule</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#orders" class="toc-h1 toc-link" data-title="orders">orders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-an-order" class="toc-h2 toc-link" data-title="create-an-order">create an order</a>
+                  </li>
+                  <li>
+                    <a href="#http-request-13" class="toc-h2 toc-link" data-title="http-request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#post-parameters-8" class="toc-h2 toc-link" data-title="post-parameters">POST Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#validate-an-order" class="toc-h2 toc-link" data-title="validate-an-order">validate an order</a>
+                  </li>
+                  <li>
+                    <a href="#http-request-14" class="toc-h2 toc-link" data-title="http-request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#verify-an-order" class="toc-h2 toc-link" data-title="verify-an-order">verify an order</a>
+                  </li>
+                  <li>
+                    <a href="#http-request-15" class="toc-h2 toc-link" data-title="http-request">HTTP Request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#products" class="toc-h1 toc-link" data-title="products">products</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-product-category" class="toc-h2 toc-link" data-title="create-a-product-category">create a product category</a>
+                  </li>
+                  <li>
+                    <a href="#http-request-16" class="toc-h2 toc-link" data-title="http-request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#post-parameters-9" class="toc-h2 toc-link" data-title="post-parameters">POST Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-specific-product" class="toc-h2 toc-link" data-title="create-a-specific-product">create a specific product</a>
+                  </li>
+                  <li>
+                    <a href="#http-request-17" class="toc-h2 toc-link" data-title="http-request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#post-parameters-10" class="toc-h2 toc-link" data-title="post-parameters">POST Parameters</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#digital-content" class="toc-h1 toc-link" data-title="digital-content">Digital content</a>
@@ -835,7 +892,187 @@ STATUS 200 OK</p>
 <ul>
 <li>Response 201 Created (application/json)</li>
 </ul>
-<h1 id='products'>products</h1><h1 id='digital-content'>Digital content</h1><h1 id='errors'>Errors</h1>
+<h1 id='tickets'>tickets</h1><h2 id='create-store-tickets'>Create store tickets</h2><h3 id='http-request-12'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/stores/tickets/</code></p>
+<h3 id='post-parameters-7'>POST Parameters</h3><h5 id='required-parameters-7'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ticket_name</td>
+<td>Required</td>
+<td>The eveny name, i.e COLOR RUN TICKET</td>
+</tr>
+<tr>
+<td>event_fk</td>
+<td>Required</td>
+<td>The event ID of associated with the ticket in UUID format</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Required</td>
+<td>The number of tickets available for sale at the store</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"54b7aee8-5a65-4a20-888c-8c26676b763c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ticket_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color run"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_fk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bd0e90a0-1f81-4d9a-90f7-d63e088335a3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"schedule_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ticket_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"schedule_fk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ticket_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ticket_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tickets_bought"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tickets_available"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_available"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<ul>
+<li>Response 201 Created (application/json)</li>
+</ul>
+<h2 id='create-store-schedule'>Create store schedule</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25f7a01b-e088-4fc8-a5fe-e79086faa097"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_fk"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"allDay"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"repeats"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dow"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<ul>
+<li>Response 201 Created (application/json)</li>
+</ul>
+<h1 id='orders'>orders</h1><h3 id='create-an-order'>create an order</h3><h3 id='http-request-13'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/stores/order/</code></p>
+<h3 id='post-parameters-8'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h5 id='required-parameters-8'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer</td>
+<td>Required</td>
+<td>A customerSerializer associated with the customer order</td>
+</tr>
+<tr>
+<td>card</td>
+<td></td>
+<td>card serializer</td>
+</tr>
+<tr>
+<td>store_fk</td>
+<td>Required</td>
+<td>The stores ID associated with the order</td>
+</tr>
+<tr>
+<td>order_detail</td>
+<td>Required</td>
+<td>The details of the order</td>
+</tr>
+</tbody></table>
+<h3 id='validate-an-order'>validate an order</h3><h3 id='http-request-14'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/stores/order/validate_order</code></p>
+<h3 id='verify-an-order'>verify an order</h3><h3 id='http-request-15'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/stores/order/verify_order</code></p>
+<h1 id='products'>products</h1><h3 id='create-a-product-category'>create a product category</h3><h3 id='http-request-16'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/products/category/</code></p>
+<h3 id='post-parameters-9'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="w">
+
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"63546dc4-f314-418a-9ccc-8eba97267499"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h5 id='required-parameters-9'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Required</td>
+<td>The category of the product</td>
+</tr>
+</tbody></table>
+<h3 id='create-a-specific-product'>create a specific product</h3><h3 id='http-request-17'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/products/product/</code></p>
+<h3 id='post-parameters-10'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a56b8f6f-a86a-4446-bb2f-62d028904c67"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b0e39bf-44c8-44da-8409-a0a2b8fe9263"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"phone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"speaker"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bluetooth speakers"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_returnable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"delivery_days"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"return_policy"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h5 id='required-parameters-10'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>store</td>
+<td>Required</td>
+<td>The store ID associated with the product created</td>
+</tr>
+<tr>
+<td>category</td>
+<td>Required</td>
+<td>The product category ID associated with the product</td>
+</tr>
+<tr>
+<td>sku</td>
+<td>Required</td>
+<td>A unique code associted with a product</td>
+</tr>
+<tr>
+<td>delivery_days</td>
+<td>Required</td>
+<td>The number of delivery days</td>
+</tr>
+</tbody></table>
+<h1 id='digital-content'>Digital content</h1><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
