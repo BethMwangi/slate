@@ -354,6 +354,17 @@
           </li>
           <li>
             <a href="#digital-content" class="toc-h1 toc-link" data-title="digital-content">Digital content</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-digital-media-file" class="toc-h2 toc-link" data-title="create-digital-media-file">create digital media file</a>
+                  </li>
+                  <li>
+                    <a href="#create-digital-album" class="toc-h2 toc-link" data-title="create-digital-album">create digital album</a>
+                  </li>
+                  <li>
+                    <a href="#create-genre" class="toc-h2 toc-link" data-title="create-genre">create genre</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
@@ -1148,7 +1159,133 @@ STATUS 200 OK</p>
     </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h1 id='digital-content'>Digital content</h1><h1 id='errors'>Errors</h1>
+</span></code></pre><h1 id='digital-content'>Digital content</h1><h2 id='create-digital-media-file'>create digital media file</h2><h3 id='http-request-19'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/digital_content/media/</code></p>
+<h3 id='post-parameters-13'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d075a0ef-2b63-4e61-8b3f-58e0fe35c0b3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b0e39bf-44c8-44da-8409-a0a2b8fe9263"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"album"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"artist"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"genre"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"music"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coldplay"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wwwwe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dddd"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">  </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h5 id='required-parameters-12'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>store</td>
+<td>Required</td>
+<td>The store ID associated with the media type</td>
+</tr>
+<tr>
+<td>genre</td>
+<td>Required</td>
+<td>the genre of the media type</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>Required</td>
+<td>JSON field</td>
+</tr>
+<tr>
+<td>author</td>
+<td>Required</td>
+<td>name of the artist</td>
+</tr>
+</tbody></table>
+<h2 id='create-digital-album'>create digital album</h2><h3 id='http-request-20'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/digital_content/album/</code></p>
+<h3 id='post-parameters-14'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9e1390c1-5160-4fbe-ac04-9d104e2b0f75"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b0e39bf-44c8-44da-8409-a0a2b8fe9263"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"genre"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coldplay we are young"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"publish_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-22T21:54:00.861162Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h5 id='required-parameters-13'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>store</td>
+<td>Required</td>
+<td>The store ID associated with the media type</td>
+</tr>
+<tr>
+<td>genre</td>
+<td></td>
+<td>the genre of the media type</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Required</td>
+<td>album description</td>
+</tr>
+<tr>
+<td>author</td>
+<td>Required</td>
+<td>name of the artist</td>
+</tr>
+<tr>
+<td>country</td>
+<td>Required</td>
+<td>country of origin, i.e KE</td>
+</tr>
+</tbody></table>
+<h2 id='create-genre'>create genre</h2><h3 id='http-request-21'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/digital_content/genre/</code></p>
+<h3 id='post-parameters-15'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<h5 id='required-parameters-14'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Required</td>
+<td>genre of media files</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04a88c8e-b370-4ce5-9c22-a1700618deb4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hiphop"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h1 id='errors'>Errors</h1>
 <!-- <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside> -->
