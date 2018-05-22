@@ -338,6 +338,18 @@
                   <li>
                     <a href="#post-parameters-10" class="toc-h2 toc-link" data-title="post-parameters">POST Parameters</a>
                   </li>
+                  <li>
+                    <a href="#product-variants" class="toc-h2 toc-link" data-title="product-variants">product variants</a>
+                  </li>
+                  <li>
+                    <a href="#http-request-18" class="toc-h2 toc-link" data-title="http-request">HTTP Request</a>
+                  </li>
+                  <li>
+                    <a href="#post-parameters-11" class="toc-h2 toc-link" data-title="post-parameters">POST Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#post-parameters-12" class="toc-h2 toc-link" data-title="post-parameters">POST Parameters</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1072,7 +1084,71 @@ STATUS 200 OK</p>
 <td>The number of delivery days</td>
 </tr>
 </tbody></table>
-<h1 id='digital-content'>Digital content</h1><h1 id='errors'>Errors</h1>
+<h3 id='product-variants'>product variants</h3><h3 id='http-request-18'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/products/variant/</code></p>
+<h3 id='post-parameters-11'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"619a45b8-84ba-4948-98f0-336476b18b19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a56b8f6f-a86a-4446-bb2f-62d028904c67"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"shipping_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"promotion_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h5 id='required-parameters-11'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>product</td>
+<td>Required</td>
+<td>The product ID associated with the product</td>
+</tr>
+<tr>
+<td>products_metadata</td>
+<td>Required</td>
+<td>metadata refers to the variations of the product in JSON format</td>
+</tr>
+<tr>
+<td>shipping_metadata</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>promotion_metadata</td>
+<td></td>
+<td>types of promotions to choose from</td>
+</tr>
+</tbody></table>
+<h3 id='post-parameters-12'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"619a45b8-84ba-4948-98f0-336476b18b19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a56b8f6f-a86a-4446-bb2f-62d028904c67"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"products_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"shipping_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"promotion_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h1 id='digital-content'>Digital content</h1><h1 id='errors'>Errors</h1>
 <!-- <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside> -->
