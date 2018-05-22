@@ -364,6 +364,9 @@
                   <li>
                     <a href="#create-genre" class="toc-h2 toc-link" data-title="create-genre">create genre</a>
                   </li>
+                  <li>
+                    <a href="#create-a-media_file" class="toc-h2 toc-link" data-title="create-a-media_file">create a media_file</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1283,6 +1286,63 @@ STATUS 200 OK</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04a88c8e-b370-4ce5-9c22-a1700618deb4"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hiphop"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h2 id='create-a-media_file'>create a media_file</h2><h3 id='http-request-22'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/digital_content/media_files/</code></p>
+<h3 id='post-parameters-16'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<h5 id='required-parameters-15'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Required</td>
+<td>name asociated with the media files</td>
+</tr>
+<tr>
+<td>digital_media</td>
+<td>Required</td>
+<td>i.e music</td>
+</tr>
+<tr>
+<td>media_type</td>
+<td>Required</td>
+<td>i.e MP3, MP4</td>
+</tr>
+<tr>
+<td>publish__date</td>
+<td>Required</td>
+<td>Date file is posted</td>
+</tr>
+<tr>
+<td>metadata</td>
+<td>Required</td>
+<td>A JSON field that captures the media file data</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5dbf07b1-0922-47d2-9314-3aac87b8ec2b"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"God's plan"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_media"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c25ba93c-fe98-46e3-b027-922820246f99"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"media_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUDIO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"media_format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mp3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"media_player_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"publish_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-22T22:12:22.643277Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9.20"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20mb"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><h1 id='errors'>Errors</h1>
