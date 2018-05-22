@@ -551,8 +551,168 @@ start_date | Required       | The date set for the public event
 + Response 201 Created (application/json)
 
 
+# tickets
+## Create store tickets
+
+### HTTP Request
+
+`POST http://mookh.com/api/stores/tickets/`
+
+### POST Parameters
+##### Required Parameters
+
+Parameter     | Default   | Description
+---------     | -------   | -----------
+ticket_name |   Required   | The eveny name, i.e COLOR RUN TICKET
+event_fk    | Required     | The event ID of associated with the ticket in UUID format
+quantity    | Required     | The number of tickets available for sale at the store
+
+```json
+{
+    "id": "54b7aee8-5a65-4a20-888c-8c26676b763c",
+    "ticket_name": "Color run",
+    "event_fk": "bd0e90a0-1f81-4d9a-90f7-d63e088335a3",
+    "schedule_name": null,
+    "ticket_description": null,
+    "schedule_fk": null,
+    "ticket_value": "0.00",
+    "is_published": false,
+    "ticket_metadata": {},
+    "quantity": 20,
+    "tickets_bought": 0,
+    "tickets_available": 20,
+    "is_available": true
+}
+
+```
++ Response 201 Created (application/json)
+
+
+## Create store schedule
+
+
+```json
+{
+    "id": "25f7a01b-e088-4fc8-a5fe-e79086faa097",
+    "event_name": null,
+    "event_fk": null,
+    "title": null,
+    "allDay": false,
+    "repeats": false,
+    "dow": [],
+    "start": null,
+    "end": null
+}
+
+```
++ Response 201 Created (application/json)
+
+
+# orders
+
+### create an order
+
+### HTTP Request
+
+`POST http://mookh.com/api/stores/order/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+```json
+
+]
+}
+```
+##### Required Parameters
+
+Parameter     | Default    | Description
+---------     | -------    | -----------
+customer      |  Required  | A customerSerializer associated with the customer order
+card          |             | card serializer
+store_fk      | Required     | The stores ID associated with the order
+order_detail  | Required  | The details of the order
+
+### validate an order
+### HTTP Request
+
+`POST http://mookh.com/api/stores/order/validate_order`
+
+
+### verify an order
+### HTTP Request
+
+`POST http://mookh.com/api/stores/order/verify_order`
+
 
 # products
+
+### create a product category
+### HTTP Request
+
+`POST http://mookh.com/api/products/category/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+```json
+
+
+{
+    "id": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "name": "phone",
+    "description": null,
+    "parent": "63546dc4-f314-418a-9ccc-8eba97267499",
+    "category_metadata": {}
+}
+```
+
+##### Required Parameters
+
+Parameter     | Default    | Description
+---------     | -------    | -----------
+name          |  Required  | The category of the product
+
+
+### create a specific product
+### HTTP Request
+
+`POST http://mookh.com/api/products/product/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+```json
+
+{
+    "id": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "category_name": "phone",
+    "name": "speaker",
+    "brand": "",
+    "description": "bluetooth speakers",
+    "prices": [],
+    "sku": "1234",
+    "is_published": false,
+    "is_featured": false,
+    "slug": null,
+    "is_returnable": false,
+    "delivery_days": "12",
+    "return_policy": null
+}
+```
+
+##### Required Parameters
+
+Parameter     | Default     | Description
+---------     | -------     | -----------
+store         |  Required   | The store ID associated with the product created
+category      |  Required   | The product category ID associated with the product
+sku           |  Required   | A unique code associted with a product
+delivery_days  |  Required  | The number of delivery days
+
+
 
 
 # Digital content
