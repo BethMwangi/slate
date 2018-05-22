@@ -191,6 +191,63 @@ Parameter | Description
 ID        | The ID of the user to retrieve. The ID is in UUID format
 
 
+## Create a user
+
+### HTTP Request
+
+`POST http://mookh.com/api/users/user/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+```json
+{
+    "id": "be67ea3a-774c-4cce-9887-a8fdcc3fd54c",
+    "first_name": "beth",
+    "last_name": "wanjiku",
+    "phone_number": "0729929972",
+    "email": "wanjikumwangi@gmail.com",
+    "profile_photo": null,
+    "groups": [
+        1
+    ]
+}
+```
+##### Required Parameters
+
+Parameter     | Default    | Description
+---------     | -------    | -----------
+email         |  Required  | The store name is required
+password      |  Required  | password to use during registration
+confirm_password| Required | The confirm password should match the password
+first_name    |            | The  first name of the user
+last_name     |            | The  last name of the registering user
+
+A verification code is sent to the email upon registration
+
+## Verify a user
+
+### HTTP Request
+
+`POST http://mookh.com/api/users/verification/`
+
+##### Required Parameters
+
+Parameter     | Default    | Description
+---------     | -------    | -----------
+code          |  Required  | A 5 digit number sent to the email for verification
+The above command returns JSON structured like this:
+
+```json
+{
+    "message": [
+        "Account verified successfully"
+    ]
+}
+```
++ Response Status  200 (application/json)
+
+
 # stores
 
 ## Create a store type
@@ -341,6 +398,14 @@ ID        | The ID of the store to retrieve passed in UUID format
 `POST http://mookh.com/api/stores/store/request`
 
 ### POST Parameters
+
+
+> The above POST request returns JSON structured like this:
+
+```json
+
+
+```
 ##### Required Parameters
 
 Parameter     | Default   | Description
@@ -353,12 +418,7 @@ store_type_fk  | Required | The store_type_fk maps the store to its type
 country        | Required | The origin of country , i.e KE, UG
 
 
-> The above POST request returns JSON structured like this:
 
-```json
-
-
-```
 
 
 
