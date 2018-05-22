@@ -247,6 +247,25 @@ The above command returns JSON structured like this:
 ```
 + Response Status  200 (application/json)
 
+## Get user roles
+
+### HTTP Request
+
+`POST http://mookh.com/api/users/user/user_roles`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+```json
+[
+    "store_owner",
+    "store_agent",
+    "super_admin"
+]
+```
+
++ Response Status  200 (application/json)
+
 
 # stores
 
@@ -416,8 +435,6 @@ store_nama    |           | The name of the store
 store_description|        | A short description of the store
 store_type_fk  | Required | The store_type_fk maps the store to its type
 country        | Required | The origin of country , i.e KE, UG
-
-
 
 
 
