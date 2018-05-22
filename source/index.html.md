@@ -772,3 +772,101 @@ The above command returns JSON structured like this:
 
 # Digital content
 
+## create digital media file
+### HTTP Request
+
+`POST http://mookh.com/api/digital_content/media/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+
+```json
+{
+    "id": "d075a0ef-2b63-4e61-8b3f-58e0fe35c0b3",
+    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "album": [],
+    "artist": [],
+    "genre": null,
+    "name": "music",
+    "description": "",
+    "thumbnail": "",
+    "country": "AO",
+    "author": "coldplay",
+    "metadata": {
+        "1": "wwwwe",
+        "2": "dddd"
+    }
+}  "slug": null
+}
+
+```
+
+##### Required Parameters
+
+Parameter     | Default     | Description
+---------     | -------     | -----------
+store       |  Required   | The store ID associated with the media type
+genre       |  Required   |  the genre of the media type
+metadata    |  Required   |  JSON field
+author      |  Required   | name of the artist
+
+
+
+## create digital album
+### HTTP Request
+
+`POST http://mookh.com/api/digital_content/album/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+```json
+{
+    "id": "9e1390c1-5160-4fbe-ac04-9d104e2b0f75",
+    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "genre": null,
+    "name": "",
+    "description": "coldplay we are young",
+    "thumbnail": "",
+    "publish_date": "2018-05-22T21:54:00.861162Z",
+    "country": "AO",
+    "author": "",
+    "prices": [],
+    "is_published": false
+}
+
+```
+
+##### Required Parameters
+
+Parameter     | Default     | Description
+---------     | -------     | -----------
+store       |  Required   | The store ID associated with the media type
+genre       |             |  the genre of the media type
+description |  Required |  album description
+author      |  Required   | name of the artist
+country     |  Required   | country of origin, i.e KE
+
+## create genre
+### HTTP Request
+
+`POST http://mookh.com/api/digital_content/genre/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+##### Required Parameters
+
+Parameter   | Default     | Description
+---------   | -------     | -----------
+name        |  Required   | genre of media files
+
+
+```json
+{
+    "id": "04a88c8e-b370-4ce5-9c22-a1700618deb4",
+    "name": "hiphop"
+}
+
+```
