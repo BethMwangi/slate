@@ -262,10 +262,21 @@
                     <a href="#get-all-stores-types" class="toc-h2 toc-link" data-title="get-all-stores-types">Get All stores types</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-store" class="toc-h2 toc-link" data-title="get-a-specific-store">Get a Specific store</a>
+                    <a href="#create-a-store" class="toc-h2 toc-link" data-title="create-a-store">Create a store</a>
                   </li>
                   <li>
-                    <a href="#create-a-specific-store" class="toc-h2 toc-link" data-title="create-a-specific-store">Create a Specific store</a>
+                    <a href="#get-a-specific-store" class="toc-h2 toc-link" data-title="get-a-specific-store">Get a Specific store</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#events" class="toc-h1 toc-link" data-title="events">events</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-an-event" class="toc-h2 toc-link" data-title="create-an-event">Create an event</a>
+                  </li>
+                  <li>
+                    <a href="#make-an-event-public" class="toc-h2 toc-link" data-title="make-an-event-public">Make an event public</a>
                   </li>
               </ul>
           </li>
@@ -508,7 +519,7 @@ is_active | true | If set to false, the result will also include users
 <li>Response Status  200 (application/json)</li>
 </ul>
 <h2 id='get-user-roles'>Get user roles</h2><h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST http://mookh.com/api/users/user/user_roles</code></p>
+<p><code>GET http://mookh.com/api/users/user/user_roles</code></p>
 <h3 id='post-parameters-2'>POST Parameters</h3>
 <p>The above command returns JSON structured like this:</p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
@@ -609,7 +620,62 @@ is_active | true | If set to false, the result will also include users
 <td>The store id is passed</td>
 </tr>
 </tbody></table>
-<h2 id='get-a-specific-store'>Get a Specific store</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'mookh'</span>
+<h2 id='create-a-store'>Create a store</h2><h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/stores/store/</code></p>
+<h3 id='post-parameters-4'>POST Parameters</h3><h5 id='required-parameters-4'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>store_name</td>
+<td>Required</td>
+<td>The store name is required</td>
+</tr>
+<tr>
+<td>description</td>
+<td></td>
+<td>A short description of the store,i.e ticketing</td>
+</tr>
+<tr>
+<td>store_type_fk</td>
+<td>Required</td>
+<td>The store type ID in UUID format that links to th estore</td>
+</tr>
+<tr>
+<td>store_type_fk</td>
+<td>Required</td>
+<td>The store_type_fk maps the store to its type</td>
+</tr>
+<tr>
+<td>country</td>
+<td>Required</td>
+<td>The country of operation , i.e KE, UG</td>
+</tr>
+</tbody></table>
+
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b0e39bf-44c8-44da-8409-a0a2b8fe9263"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manager_fk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"be67ea3a-774c-4cce-9887-a8fdcc3fd54c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manager_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beth wanjiku"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"story"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"balances"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_type_fk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daf67422-0e40-4a6e-969e-7a58406e229a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_type_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mymookh"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_type_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"selling tickets"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"poster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='get-a-specific-store'>Get a Specific store</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'mookh'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">Mookh</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="nf">stores</span><span class="p">.</span><span class="nf">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
@@ -628,16 +694,26 @@ is_active | true | If set to false, the result will also include users
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b0d0cb74-0833-4af2-ab1f-51be03c1f64a"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"manager_fk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b0d0cb74-0833-4af2-ab1f-51be03c1f64a"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"manager_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wanjiku"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sauti sol"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"store_type-fk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daf67422-0e40-4a6e-969e-7a58406e229a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b0e39bf-44c8-44da-8409-a0a2b8fe9263"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manager_fk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"be67ea3a-774c-4cce-9887-a8fdcc3fd54c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manager_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beth wanjiku"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sautisol"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"balances"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_type_fk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daf67422-0e40-4a6e-969e-7a58406e229a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_type_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mymookh"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_type_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"selling tickets"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"poster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific store.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<p>This endpoint retrieves a specific store.
+STATUS 200 OK</p>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>GET http://mookh.com/stores/store/&lt;pk&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
@@ -648,18 +724,12 @@ is_active | true | If set to false, the result will also include users
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the store to retrieve passed in UUID format</td>
+<td>The ID of the store is passed in UUID format</td>
 </tr>
 </tbody></table>
-<h2 id='create-a-specific-store'>Create a Specific store</h2><h3 id='http-request-9'>HTTP Request</h3>
-<p><code>POST http://mookh.com/api/stores/store/request</code></p>
-<h3 id='post-parameters-4'>POST Parameters</h3>
-<blockquote>
-<p>The above POST request returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
-
-</span></code></pre><h5 id='required-parameters-4'>Required Parameters</h5>
+<h1 id='events'>events</h1><h2 id='create-an-event'>Create an event</h2><h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/stores/event_category/</code></p>
+<h3 id='post-parameters-5'>POST Parameters</h3><h5 id='required-parameters-5'>Required Parameters</h5>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -668,36 +738,103 @@ is_active | true | If set to false, the result will also include users
 </tr>
 </thead><tbody>
 <tr>
-<td>manager_fk</td>
+<td>id</td>
 <td>Required</td>
-<td>This is the users/managers foreign key in UUID format</td>
+<td>created upon event creation. The ID is in UUID format</td>
 </tr>
 <tr>
-<td>manager_name</td>
+<td>category_name</td>
 <td></td>
-<td>The store name is required</td>
+<td>The eveny category</td>
 </tr>
 <tr>
-<td>store_nama</td>
+<td>event_label</td>
 <td></td>
-<td>The name of the store</td>
-</tr>
-<tr>
-<td>store_description</td>
 <td></td>
-<td>A short description of the store</td>
 </tr>
 <tr>
-<td>store_type_fk</td>
-<td>Required</td>
-<td>The store_type_fk maps the store to its type</td>
-</tr>
-<tr>
-<td>country</td>
-<td>Required</td>
-<td>The origin of country , i.e KE, UG</td>
+<td>category_metadata</td>
+<td></td>
+<td>A JSONField category data to choose from</td>
 </tr>
 </tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"711ab531-511a-4ee3-8b7e-676ecc8f753d"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cat"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"conference"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category_metadata"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+</span></code></pre><h2 id='make-an-event-public'>Make an event public</h2><h3 id='http-request-11'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/stores/event/public/</code></p>
+<h3 id='post-parameters-6'>POST Parameters</h3><h5 id='required-parameters-6'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>event_name</td>
+<td></td>
+<td>The eveny name, i.e COLOR RUN</td>
+</tr>
+<tr>
+<td>event_category_fk</td>
+<td>Required</td>
+<td>The ID of event_category associated with the event in UUID format</td>
+</tr>
+<tr>
+<td>event_description</td>
+<td>Required</td>
+<td>A short description of the public event</td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>Required</td>
+<td>The date set for the public event</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bd0e90a0-1f81-4d9a-90f7-d63e088335a3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color run"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_venue"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the color run event"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_category_fk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"711ab531-511a-4ee3-8b7e-676ecc8f753d"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent_event_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"category_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cat"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_poster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_fk"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b0e39bf-44c8-44da-8409-a0a2b8fe9263"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_type_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daf67422-0e40-4a6e-969e-7a58406e229a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"story"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store_contacts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="s2">"phone_numbers"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05T22:08:37.838000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_free"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_private"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_complimentary"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"event_metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"tickets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"tickets_count_by_category"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"tickets_total_sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tickets_sales_by_platform"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tickets_by_status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_event_tickets"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"sub_events"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-22T20:36:22.899728Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<ul>
+<li>Response 201 Created (application/json)</li>
+</ul>
 <h1 id='products'>products</h1><h1 id='digital-content'>Digital content</h1><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
