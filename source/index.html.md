@@ -713,6 +713,62 @@ sku           |  Required   | A unique code associted with a product
 delivery_days  |  Required  | The number of delivery days
 
 
+### product variants
+### HTTP Request
+
+`POST http://mookh.com/api/products/variant/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+```json
+
+{
+    "id": "619a45b8-84ba-4948-98f0-336476b18b19",
+    "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+    "products_metadata": {},
+    "shipping_metadata": {},
+    "promotion_metadata": {},
+    "thumbnail": null,
+    "quantity": null,
+    "discount": "0.00",
+    "is_published": false,
+    "is_featured": false,
+    "slug": null
+}
+
+```
+
+##### Required Parameters
+
+Parameter     | Default     | Description
+---------     | -------     | -----------
+product       |  Required   | The product ID associated with the product
+products_metadata |  Required   | metadata refers to the variations of the product in JSON format
+shipping_metadata|         |
+promotion_metadata |       | types of promotions to choose from
+
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+```json
+{
+    "id": "619a45b8-84ba-4948-98f0-336476b18b19",
+    "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+    "products_metadata": {},
+    "shipping_metadata": {},
+    "promotion_metadata": {},
+    "thumbnail": null,
+    "quantity": null,
+    "discount": "0.00",
+    "is_published": false,
+    "is_featured": false,
+    "slug": null
+}
+
+```
+
 
 # Digital content
 
