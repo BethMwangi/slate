@@ -367,6 +367,9 @@
                   <li>
                     <a href="#create-a-media_file" class="toc-h2 toc-link" data-title="create-a-media_file">create a media_file</a>
                   </li>
+                  <li>
+                    <a href="#artist" class="toc-h2 toc-link" data-title="artist">Artist</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1343,6 +1346,40 @@ STATUS 200 OK</p>
         </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20mb"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h2 id='artist'>Artist</h2><h3 id='http-request-23'>HTTP Request</h3>
+<p><code>POST http://mookh.com/api/digital_content/artist/</code></p>
+<h3 id='post-parameters-17'>POST Parameters</h3>
+<p>The above command returns JSON structured like this:</p>
+<h5 id='required-parameters-16'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Required</td>
+<td>Generated when creating an artist</td>
+</tr>
+<tr>
+<td>User</td>
+<td>Required</td>
+<td>PimaryKeyRelated Field, this fields takes the default authenticated user/ store manager</td>
+</tr>
+<tr>
+<td>stage_name</td>
+<td>Required</td>
+<td>The name of the artist</td>
+</tr>
+</tbody></table>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e3855c1a-c4e7-4641-975e-6857df14881e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a9cfe48c-84fe-4d57-932d-db17d071d937"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stage_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drake"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><h1 id='errors'>Errors</h1>
