@@ -911,3 +911,32 @@ metadata |    Required  | A JSON field that captures the media file data
 }
 
 ```
+
+## Artist
+
+### HTTP Request
+
+`POST http://mookh.com/api/digital_content/artist/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+
+##### Required Parameters
+
+Parameter   | Default     | Description
+---------   | -------     | -----------
+ID        |  Required   | Generated when creating an artist
+User      |  Required   | PimaryKeyRelated Field, this fields takes the default authenticated user/ store manager
+stage_name |    Required   | The name of the artist
+
+```json
+{
+    "id": "e3855c1a-c4e7-4641-975e-6857df14881e",
+    "user": "a9cfe48c-84fe-4d57-932d-db17d071d937",
+    "stage_name": "Drake"
+}
+
+```
+
+
