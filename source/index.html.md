@@ -713,6 +713,89 @@ sku           |  Required   | A unique code associted with a product
 delivery_days  |  Required  | The number of delivery days
 
 
+## Retrieve a particular product
+### HTTP Request
+
+`GET http://mookh.com/api/products/<pk>/`
+
+HTTP/1.1 200 OK
+
+The above command returns JSON structured like this:
+
+```json
+
+{
+    "id": "3635dc2c-8513-42dc-a81a-3ed1eff68d46",
+    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "category_name": "clothing",
+    "name": "dress",
+    "brand": "",
+    "description": "maxi dress",
+    "prices": [],
+    "sku": "1237",
+    "is_published": true,
+    "is_featured": true,
+    "slug": null,
+    "is_returnable": false,
+    "delivery_days": "11",
+    "return_policy": null
+}
+```
+
+## Retrieve all products
+### HTTP Request
+
+`GET http://mookh.com/api/products/`
+
+HTTP/1.1 200 OK
+
+The above command returns JSON structured like this:
+
+```json
+
+{
+    "id": "619a45b8-84ba-4948-98f0-336476b18b19",
+    "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+    "products_metadata":
+
+        {
+          "title": "Pink",
+          "price": "199.00",
+          "sku": "IPOD2008PINK",
+          "position": 1,
+          "option1": "Pink"
+        }
+
+ } ,
+    "shipping_metadata": {},
+    "promotion_metadata": {},
+    "thumbnail": null,
+    "quantity": null,
+    "discount": "0.00",
+    "is_published": false,
+    "is_featured": false,
+    "slug": null
+},
+{
+    "id": "819a45b8-84ba-4948-98f0-336476b18b19",
+    "product": "a36b8f6f-a86a-4446-bb2f-62d028904c67",
+    "products_metadata": {},
+    "shipping_metadata": {},
+    "promotion_metadata": {},
+    "thumbnail": null,
+    "quantity": null,
+    "discount": "0.00",
+    "is_published": false,
+    "is_featured": false,
+    "slug": null
+}
+
+
+```
+
+
+
 ### product variants
 ### HTTP Request
 
