@@ -940,3 +940,56 @@ stage_name |    Required   | The name of the artist
 ```
 
 
+## Get a list of digital content
+
+The above command returns JSON structured like this:
+
+```json
+
+
+```
+
+This endpoint retrieves a list of all digital content.
+
+### HTTP Request
+
+`GET http://mookh.com/api/digital_content/`
+
+
+## Get a particular album
+
+The above command returns JSON structured like this:
+
+```json
+{
+    "id": "9e1390c1-5160-4fbe-ac04-9d104e2b0f75",
+    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "genre": null,
+    "name": "",
+    "description": "coldplay we are young",
+    "thumbnail": "",
+    "publish_date": "2018-05-22T21:54:00.861162Z",
+    "country": "AO",
+    "author": "",
+    "prices": [],
+    "is_published": false
+}
+
+```
+
+This endpoint retrieves an album
+
+### HTTP Request
+
+`GET http://mookh.com/api/digital_content/album/<pk>`
+
+##### Required Parameters
+
+Parameter   | Default     | Description
+---------   | -------     | -----------
+ID          |  Required      | The ID of the album in UUID format
+
+
+
+
+
