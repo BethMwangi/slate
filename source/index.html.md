@@ -492,9 +492,6 @@ category_metadata |       | A JSONField category data to choose from
 
 ```
 
-
-
-
 ## Make an event public
 
 ### HTTP Request
@@ -714,11 +711,39 @@ delivery_days  |  Required  | The number of delivery days
 
 
 ## Retrieve a particular product
+
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.stores.get({<pk>})
+```
+
+```shell
+curl "http://mookh.com/api/products/<pk>/"
+  -H "Authorization: auth"
+```
+
+
+```javascript
+const mookh = require('mookh');
+
+let api = mookh.authorize('mookh');
+let max = api.users.get(<pk>);
+```
+
+
 ### HTTP Request
 
 `GET http://mookh.com/api/products/<pk>/`
 
 HTTP/1.1 200 OK
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID        | The ID of the product to retrieve. The ID is in UUID format
 
 The above command returns JSON structured like this:
 
@@ -743,7 +768,33 @@ The above command returns JSON structured like this:
 }
 ```
 
+This endpoint retrieves a specific product.
+
+
+
 ## Retrieve all products
+
+
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.stores.get({<pk>})
+```
+
+```shell
+curl "http://mookh.com/api/products/"
+  -H "Authorization: auth"
+```
+
+
+```javascript
+const mookh = require('mookh');
+
+let api = mookh.authorize('mookh');
+let max = api.users.get(<pk>);
+```
+
 ### HTTP Request
 
 `GET http://mookh.com/api/products/`
@@ -793,10 +844,11 @@ The above command returns JSON structured like this:
 
 
 ```
+This endpoint retrieves a list of products in a particular store.
 
 
 
-### product variants
+## product variants
 ### HTTP Request
 
 `POST http://mookh.com/api/products/variant/`
