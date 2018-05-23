@@ -3,13 +3,13 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
+#   - ruby
   - python
   - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by</a>
+#   - <a href='https://github.com/lord/slate'>Documentation Powered by</a>
 
 includes:
   - errors
@@ -38,11 +38,11 @@ Content-Type  |  Only application/json content type is supported.
 
 > To authorize, use this code:
 
-```ruby
+<!-- ```ruby
 require 'mookh'
 
 api = Mookh::APIClient.authorize!('auth')
-```
+``` -->
 
 ```python
 import mookh
@@ -69,6 +69,8 @@ HTTP requests to the REST API are protected with HTTP Basic authentication
 
 ## Get All Users
 
++ Response 200 (application/json)
+
 ```python
 import mookh
 
@@ -77,8 +79,9 @@ api.users.get()
 ```
 
 ```shell
-curl "http://example.com/api/users/user/"
+curl "http://api.mymookh.com/api/users/user/"
   -H "Authorization: auth"
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/users/user/"
 ```
 
 <!-- ```javascript
@@ -134,12 +137,12 @@ is_active | true | If set to false, the result will also include users
 
 + Response 200 (application/json)
 
-```ruby
+<!-- ```ruby
 require 'mookh'
 
 api = Mookh::APIClient.authorize!('auth')
 api.users.get({<pk>})
-```
+``` -->
 
 ```python
 import mookh
@@ -149,8 +152,10 @@ api.users.get({<pk>})
 ```
 
 ```shell
-curl "http://mookh.com/api/users/user/<pk>/"
+curl "http://api.mymookh.com/users/user/<pk>/"
   -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/users/user/<pk>"
 ```
 
 ```javascript
@@ -253,6 +258,27 @@ The above command returns JSON structured like this:
 
 `GET http://mookh.com/api/users/user/user_roles`
 
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.users.get({})
+```
+
+```shell
+curl "http://api.mymookh.com/users/user_roles/"
+  -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/users/user_roles/"
+```
+
+```javascript
+const mookh = require('mookh');
+
+let api = mookh.authorize('mookh');
+let max = api.users.get();
+```
+
 ### POST Parameters
 The above command returns JSON structured like this:
 
@@ -316,8 +342,11 @@ api.stores.get()
 ```
 
 ```shell
-curl "http://mookh.com/api/stores/store_type/"
+curl "http://api.mymookh.com/stores/store_type/"
   -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/store_type/"
+
 ```
 
 
@@ -399,12 +428,12 @@ The above command returns JSON structured like this:
 
 ## Get a Specific store
 
-```ruby
+<!-- ```ruby
 require 'mookh'
 
 api = Mookh::APIClient.authorize!('auth')
 api.stores.get({<pk>})
-```
+``` -->
 
 ```python
 import mookh
@@ -416,6 +445,9 @@ api.stores.get({<pk>})
 ```shell
 curl "http://mookh.com/api/stores/store/<pk>/"
   -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/store/<pk>/"
+
 ```
 
 ```javascript
@@ -553,7 +585,7 @@ start_date | Required       | The date set for the public event
 
 ### HTTP Request
 
-`POST http://mookh.com/api/stores/tickets/`
+`POST https://api.mymookh.com/stores/tickets/`
 
 ### POST Parameters
 ##### Required Parameters
@@ -617,9 +649,32 @@ quantity    | Required     | The number of tickets available for sale at the sto
 The above command returns JSON structured like this:
 
 ```json
-
-]
+{
+ "id":"af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+"customer": "mwangi",
+"card": "2332111",
+"store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+"agent": "Dee",
+"agent_name": "phyl",
+"event_name": "skiza",
+"event": "null",
+"order_items_summary": "null",
+"order_detail": "null",
+"order_status": "",
+"order_number": "92873",
+"currency": "Ksh",
+"order_amount": "90",
+"order_balance": "90",
+"promo_code": "7662728",
+"promo_code_value": "900",
+"payment_method": "MPESA",
+"order_type": "",
+"payment_reference": "",
+"order_udf": "",
+"flag_email_sent": "false",
+"flag_sms_sent":"false"
 }
+
 ```
 ##### Required Parameters
 
@@ -642,7 +697,155 @@ order_detail  | Required  | The details of the order
 `POST http://mookh.com/api/stores/order/verify_order`
 
 
+## Retrieve a particular order
+
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.stores.get({<pk>})
+```
+
+```shell
+curl "https://api.mymookh.com/stores/orders/<pk>/"
+  -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/orders/<pk>/"
+
+```
+
+
+```javascript
+const mookh = require('mookh');
+
+let api = mookh.authorize('mookh');
+let max = api.users.get(<pk>);
+```
+
+
+### HTTP Request
+
+`GET https://api.mymookh.com/stores/orders/<pk>/"`
+
+HTTP/1.1 200 OK
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID        | The ID of the order to retrieve. The ID is in UUID format
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+    "agent": "null",
+    "agent_name": "pikado",
+    "event_name": "color run",
+    "event": "event",
+    "order_items_summary": "lorm ipsum dolar sit",
+    "order_detail": "",
+    "order_status": "",
+    "order_number": "39393",
+    "currency": "Ksh",
+    "order_amount": "20",
+    "order_balance": "10",
+    "promo_code": "FHK09",
+    "promo_code_value": "",
+    "payment_method": "",
+    "order_type": "",
+    "payment_reference": "",
+    "order_udf": "",
+    "flag_email_sent": "true",
+    "flag_sms_sent": "true"
+
+}
+```
+
+# promo
+
+### create a promo_code
+
+### HTTP Request
+
+`POST https://api.mymookh.com/stores/promo_codes/`
+
+### POST Parameters
+The above command returns JSON structured like this:
+
+```json
+{
+ "id":"af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+"is_active": "true",
+"store": "63546dc4-f314-418a-9ccc-8eba97267499",
+"event": "null",
+"promo_name": "stylez",
+"value": "3500",
+"quantity": "20",
+"promo_value": "900",
+"is_percentage": "false",
+"is_fixed": "false",
+"is_custom": "true",
+"start_date": "",
+"end_date":"",
+"code":"MY7s8s"
+}
+
+```
+##### Required Parameters
+
+Parameter     | Default    | Description
+---------     | -------    | -----------
+promo_name    |  Required  | Name associated with the promo
+quantuty      |  Requierd  | number of promo codes available
+start_date    | Required   | The start date promo is running
+end_date      | Required   | The end of promo
+
+
+## Retrieve a particular promo code
+
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.stores.get({<pk>})
+```
+
+```shell
+curl "https://api.mymookh.com/stores/promo_codes/<pk>/"
+  -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/promo_codes/<pk>/"
+
+```
+
+```javascript
+const mookh = require('mookh');
+
+let api = mookh.authorize('mookh');
+let max = api.users.get(<pk>);
+```
+
+### HTTP Request
+
+`GET https://api.mymookh.com/stores/promo_codes/<pk>/"`
+
+HTTP/1.1 200 OK
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID        | The ID of the promo_code to retrieve. The ID is in UUID format
+
+
+
 # products
+
+The Mookh API lets you do the following with the Product resource.
 
 ### create a product category
 ### HTTP Request
@@ -706,7 +909,7 @@ Parameter     | Default     | Description
 ---------     | -------     | -----------
 store         |  Required   | The store ID associated with the product created
 category      |  Required   | The product category ID associated with the product
-sku           |  Required   | A unique code associted with a product
+sku           |  Required   | A unique code associated with a product
 delivery_days  |  Required  | The number of delivery days
 
 
@@ -720,8 +923,11 @@ api.stores.get({<pk>})
 ```
 
 ```shell
-curl "http://mookh.com/api/products/<pk>/"
+curl "https://api.mymookh.com/products/product/<pk>/"
   -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/products/product/<pk>"
+
 ```
 
 
@@ -735,7 +941,7 @@ let max = api.users.get(<pk>);
 
 ### HTTP Request
 
-`GET http://mookh.com/api/products/<pk>/`
+`GET https://api.mymookh.com/products/product/<pk>/`
 
 HTTP/1.1 200 OK
 
@@ -771,7 +977,6 @@ The above command returns JSON structured like this:
 This endpoint retrieves a specific product.
 
 
-
 ## Retrieve all products
 
 
@@ -783,8 +988,10 @@ api.stores.get({<pk>})
 ```
 
 ```shell
-curl "http://mookh.com/api/products/"
+  curl -X GET "https://api.mymookh.com/products/product/"
   -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/products/product/"
 ```
 
 
