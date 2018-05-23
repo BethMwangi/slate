@@ -370,6 +370,12 @@
                   <li>
                     <a href="#artist" class="toc-h2 toc-link" data-title="artist">Artist</a>
                   </li>
+                  <li>
+                    <a href="#get-a-list-of-digital-content" class="toc-h2 toc-link" data-title="get-a-list-of-digital-content">Get a list of digital content</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-particular-album" class="toc-h2 toc-link" data-title="get-a-particular-album">Get a particular album</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1382,7 +1388,49 @@ STATUS 200 OK</p>
     </span><span class="s2">"stage_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drake"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h1 id='errors'>Errors</h1>
+</span></code></pre><h2 id='get-a-list-of-digital-content'>Get a list of digital content</h2>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="w">
+
+</span></code></pre>
+<p>This endpoint retrieves a list of all digital content.</p>
+<h3 id='http-request-24'>HTTP Request</h3>
+<p><code>GET http://mookh.com/api/digital_content/</code></p>
+<h2 id='get-a-particular-album'>Get a particular album</h2>
+<p>The above command returns JSON structured like this:</p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9e1390c1-5160-4fbe-ac04-9d104e2b0f75"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7b0e39bf-44c8-44da-8409-a0a2b8fe9263"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"genre"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coldplay we are young"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"publish_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-22T21:54:00.861162Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AO"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint retrieves an album</p>
+<h3 id='http-request-25'>HTTP Request</h3>
+<p><code>GET http://mookh.com/api/digital_content/album/&lt;pk&gt;</code></p>
+<h5 id='required-parameters-17'>Required Parameters</h5>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>Required</td>
+<td>The ID of the album in UUID format</td>
+</tr>
+</tbody></table>
+<h1 id='errors'>Errors</h1>
 <!-- <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside> -->
