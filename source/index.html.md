@@ -156,11 +156,10 @@ import json
 import requests
 api_token = 'api_token'
 api_url = "https://api.mymookh.com/api/users/user/"
-data = {}
 headers = {'Content-Type': 'application/json',
             'Accept': 'application/json'
            'Authorization': 'Bearer {0}'.format(api_token)}
-response = requests.get(api_url{:id}, data=data)
+response = requests.get(api_url{:id}, headers=headers)
 print(response)
 ```
 
@@ -556,6 +555,24 @@ ID        | The ID of the store is passed in UUID format
 
 `POST https://api.mymookh.com/stores/event_category/`
 
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/stores/event_category/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+ "category_name": "cat",
+    "event_label": "conference",
+    "category_metadata": null
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+
+```
+
 ### POST Parameters
 ##### Required Parameters
 
@@ -583,6 +600,32 @@ category_metadata |       | A JSONField category data to choose from
 ### HTTP Request
 
 `POST https://api.mymookh.com/stores/event/public/`
+
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/stores/event/public/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+  "event_name": "Color run",
+    "event_venue": null,
+    "event_description": "the color run event",
+    "event_category_fk": "711ab531-511a-4ee3-8b7e-676ecc8f753d",
+    "parent_event_id": null,
+    "category_name": "cat",
+    "event_poster": null,
+    "store_fk": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "store_type_id": "daf67422-0e40-4a6e-969e-7a58406e229a",
+    "store_name": "story"
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+
+```
 
 ### POST Parameters
 ##### Required Parameters
@@ -640,6 +683,41 @@ start_date | Required       | The date set for the public event
 ### HTTP Request
 
 `POST https://api.mymookh.com/stores/tickets/`
+
+```shell
+
+curl -d '{  "ticket_name": "Color run", "event_fk": "bd0e90a0-1f81-4d9a-90f7-d63e088335a3", "schedule_name": null, "ticket_description": null,"schedule_fk": null,
+    "ticket_value": "0.00"}' s
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/stores/tickets/"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/stores/tickets/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+  "ticket_name": "Color run",
+    "event_fk": "bd0e90a0-1f81-4d9a-90f7-d63e088335a3",
+    "schedule_name": null,
+    "ticket_description": null,
+    "schedule_fk": null,
+    "ticket_value": "0.00",
+    "is_published": false,
+    "ticket_metadata": {},
+    "quantity": 20,
+    "tickets_bought": 0,
+    "tickets_available": 20,
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+
+```
+
 
 ### POST Parameters
 ##### Required Parameters
@@ -699,6 +777,58 @@ quantity    | Required     | The number of tickets available for sale at the sto
 
 `POST https://api.mymookh.com/stores/order/`
 
+```shell
+
+curl -d '{
+"customer": "mwangi","card": "2332111","store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+"agent": "Dee",
+"agent_name": "phyl",
+"event_name": "skiza",
+"event": "null",
+"order_items_summary": "null",
+"order_detail": "null",
+"order_status": "",
+"order_number": "92873",
+"currency": "Ksh",
+"order_amount": "90"}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/stores/order/"
+```
+
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/stores/order/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+  "customer": "mwangi",
+"card": "2332111",
+"store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+"agent": "Dee",
+"agent_name": "phyl",
+"event_name": "skiza",
+"event": "null",
+"order_items_summary": "null",
+"order_detail": "null",
+"order_status": "",
+"order_number": "92873",
+"currency": "Ksh",
+"order_amount": "90",
+"order_balance": "90",
+"promo_code": "7662728",
+"promo_code_value": "900",
+"payment_method": "MPESA"
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+
+```
+
+
 ### POST Parameters
 The above command returns JSON structured like this:
 
@@ -744,11 +874,90 @@ order_detail  | Required  | The details of the order
 
 `POST https://api.mymookh.com/stores/order/validate_order`
 
+```shell
+
+curl -d '{ "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+    "card": "78387",
+    "agent_name": "pikado",
+    "event_name": "color run",
+    "event": "event",
+    "order_items_summary": "lorm ipsum dolar sit"
+
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/stores/order/validate_order"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/order/validate_order/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+    "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+    "card": "78387",
+    "agent_name": "pikado",
+    "event_name": "color run",
+    "event": "event",
+    "order_items_summary": "lorm ipsum dolar sit",
+    "order_detail": "",
+    "order_status": "",
+    "order_number": "39393",
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+
+```
+
 
 ### verify an order
 ### HTTP Request
 
 `POST https://api.mymookh.com/stores/order/verify_order`
+```shell
+
+curl -d '{ "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+    "card": "78387",
+    "agent_name": "pikado",
+    "event_name": "color run",
+    "event": "event",
+    "order_items_summary": "lorm ipsum dolar sit"
+
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/stores/order/verify_order"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/order/verify_order/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+    "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+    "card": "78387",
+    "agent_name": "pikado",
+    "event_name": "color run",
+    "event": "event",
+    "order_items_summary": "lorm ipsum dolar sit",
+    "order_detail": "lorem ipsum",
+    "order_status": "",
+    "order_number": "39393",
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+
+```
 
 
 ## Retrieve a particular order
@@ -832,6 +1041,40 @@ ID        | The ID of the order to retrieve. The ID is in UUID format
 ### HTTP Request
 
 `POST https://api.mymookh.com/stores/promo_codes/`
+
+```shell
+
+curl -d '{ "store": "63546dc4-f314-418a-9ccc-8eba97267499","event": "null", "promo_name": "stylez", "value": "3500"}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/stores/promo_codes/<pk>/"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/stores/promo_codes/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+ "is_active": "true",
+"store": "63546dc4-f314-418a-9ccc-8eba97267499",
+"event": "null",
+"promo_name": "stylez",
+"value": "3500",
+"quantity": "20",
+"promo_value": "900",
+"is_percentage": "false",
+"is_fixed": "false",
+"is_custom": "true",
+"start_date": "",
+"end_date":"",
+"code":"MY7s8s"
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+```
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -918,6 +1161,35 @@ The Mookh API lets you do the following with the Product resource.
 
 `POST https://api.mymookh.com/products/category/`
 
+```shell
+
+curl -d '{  "name": "phone",
+    "description": null,
+    "parent": "63546dc4-f314-418a-9ccc-8eba97267499",
+    "category_metadata": {}
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/products/category/"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/products/category/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+    "name": "phone",
+    "description": null,
+    "parent": "63546dc4-f314-418a-9ccc-8eba97267499",
+    "category_metadata": {}
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+```
+
 ### POST Parameters
 The above command returns JSON structured like this:
 
@@ -944,6 +1216,41 @@ name          |  Required  | The category of the product
 ### HTTP Request
 
 `POST http://mookh.com/api/products/product/`
+
+
+```shell
+
+curl -d '{
+     "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "category_name": "phone",
+    "name": "speaker",
+    "brand": "",
+    "description": "bluetooth speakers"
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/products/product/"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/products/product/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+    "category_name": "phone",
+    "name": "speaker",
+    "brand": "",
+    "description": "bluetooth speakers"
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+```
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -981,6 +1288,14 @@ delivery_days  |  Required  | The number of delivery days
 
 ## Retrieve a particular product
 
+```shell
+curl "https://api.mymookh.com/products/product/<pk>/"
+  -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/products/product/<pk>"
+
+```
+
 ```python
 import requests
 import json
@@ -995,13 +1310,7 @@ print(response.text)
 
 ```
 
-```shell
-curl "https://api.mymookh.com/products/product/<pk>/"
-  -H "Authorization: auth"
 
-curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/products/product/<pk>"
-
-```
 
 
 ```javascript
@@ -1052,6 +1361,12 @@ This endpoint retrieves a specific product.
 
 ## Retrieve all products
 
+```shell
+  curl -X GET "https://api.mymookh.com/products/product/"
+  -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/products/product/"
+```
 
 ```python
 import requests
@@ -1066,14 +1381,6 @@ response = requests.get(api_url, headers=headers)
 print(response.text)
 
 ```
-
-```shell
-  curl -X GET "https://api.mymookh.com/products/product/"
-  -H "Authorization: auth"
-
-curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/products/product/"
-```
-
 
 ```javascript
 // const mookh = require('mookh');
@@ -1139,6 +1446,19 @@ This endpoint retrieves a list of products in a particular store.
 ### HTTP Request
 
 `POST https://api.mymookh.com/products/variant/`
+
+
+```shell
+
+curl -d '{
+    "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+    "products_metadata": "",
+    "shipping_metadata": "",
+    "promotion_metadata": ""
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/products/variant/"
+```
 
 
 ```python
@@ -1215,6 +1535,47 @@ The above command returns JSON structured like this:
 
 `POST https://api.mymookh.com/digital_content/media/`
 
+
+```shell
+
+curl -d '{
+    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "album": [],
+    "artist": [],
+    "genre": null,
+    "name": "music",
+    "description": "",
+    "thumbnail": "",
+    "country": "AO",
+    "author": "coldplay"
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/digital_content/media/"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/digital_content/media/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+     "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "album": [],
+    "artist": [],
+    "genre": null,
+    "name": "music",
+    "description": "",
+    "thumbnail": "",
+    "country": "AO",
+    "author": "coldplay"
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+```
+
 ### POST Parameters
 The above command returns JSON structured like this:
 
@@ -1256,6 +1617,42 @@ author      |  Required   | name of the artist
 
 `POST https://api.mymookh.com/digital_content/album/`
 
+```shell
+
+curl -d '{
+     "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "genre": null,
+    "name": "",
+    "description": "coldplay we are young",
+    "thumbnail": "",
+    "publish_date": "2018-05-22T21:54:00.861162Z",
+    "country": "AO"
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/digital_content/album/"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/digital_content/album/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "genre": null,
+    "name": "",
+    "description": "coldplay we are young",
+    "thumbnail": "",
+    "publish_date": "2018-05-22T21:54:00.861162Z",
+    "country": "AO"
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+```
+
 ### POST Parameters
 The above command returns JSON structured like this:
 
@@ -1291,6 +1688,30 @@ country     |  Required   | country of origin, i.e KE
 
 `POST https://api.mymookh.com/digital_content/genre/`
 
+```shell
+
+curl -d '{
+     "name": "hiphop"
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/digital_content/genre/"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/digital_content/genre/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+    "name": "hiphop"
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+```
+
 ### POST Parameters
 The above command returns JSON structured like this:
 
@@ -1313,6 +1734,57 @@ name        |  Required   | genre of media files
 ### HTTP Request
 
 `POST https://api.mymookh.com/digital_content/media_files/`
+
+```shell
+
+curl -d '{
+    "name": "Gods plan",
+    "digital_media": "c25ba93c-fe98-46e3-b027-922820246f99",
+    "media_type": "AUDIO",
+    "media_format": "mp3",
+    "description": "",
+    "file": "",
+    "media_player_url": "",
+    "thumbnail": "",
+    "publish_date": "2018-05-22T22:12:22.643277Z",
+    "is_published": true,
+    "metadata": {
+        "price": "9.20",
+        "size": "20mb"
+    }
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/digital_content/media_files/"
+```
+
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/digital_content/media_files/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+    "name": "God's plan",
+    "digital_media": "c25ba93c-fe98-46e3-b027-922820246f99",
+    "media_type": "AUDIO",
+    "media_format": "mp3",
+    "description": "",
+    "file": "",
+    "media_player_url": "",
+    "thumbnail": "",
+    "publish_date": "2018-05-22T22:12:22.643277Z",
+    "is_published": true,
+    "metadata": {
+        "price": "9.20",
+        "size": "20mb"
+    }
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+```
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -1356,6 +1828,32 @@ metadata |    Required  | A JSON field that captures the media file data
 
 `POST https://api.mymookh.com/digital_content/artist/`
 
+```shell
+
+curl -d '{
+    "user": "a9cfe48c-84fe-4d57-932d-db17d071d937",
+    "stage_name": "Drake"
+}'
+ -H "Content-Type: application/json"
+ -X POST "https://api.mymookh.com/digital_content/artist/"
+```
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/digital_content/artist/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+   "user": "a9cfe48c-84fe-4d57-932d-db17d071d937",
+    "stage_name": "Drake"
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+```
+
 ### POST Parameters
 The above command returns JSON structured like this:
 
@@ -1380,6 +1878,14 @@ stage_name |    Required   | The name of the artist
 
 ## Get a list of digital content
 
+```shell
+curl "https://api.mymookh.com/digital_content"
+  -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/digital_content/"
+
+```
+
 ```python
 import requests
 import json
@@ -1391,14 +1897,6 @@ headers = {'Content-Type': 'application/json',
            'Authorization': 'Bearer {0}'.format(api_token)}
 response = requests.get(api_url, headers=headers)
 print(response.text)
-
-```
-
-```shell
-curl "https://api.mymookh.com/digital_content"
-  -H "Authorization: auth"
-
-curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/digital_content/"
 
 ```
 
@@ -1425,12 +1923,17 @@ This endpoint retrieves a list of all digital content.
 
 ## Get a particular album
 
-
 ```python
 import requests
+import json
 
-api = mookh.authorize('auth')
-api.stores.get()
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/album/"
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url({:id}), data=data)
+print(response)
 ```
 
 ```shell
