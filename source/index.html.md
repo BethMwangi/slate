@@ -74,8 +74,12 @@ HTTP requests to the REST API are protected with HTTP Basic authentication
 ```python
 import requests
 
-api = mookh.authorize('auth')
-api.users.get()
+url = "https://api.mymookh.com/api/users/user/"
+data = {}
+headers = {"Accept": "application/json"}
+response = requests.get(url, data=data)
+print(response)
+
 ```
 
 ```shell
