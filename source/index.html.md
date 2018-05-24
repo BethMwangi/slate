@@ -331,8 +331,10 @@ icon       |          | An icon of the store
 ```python
 
 import requests
+import json
+
 access_token = "Access_Token"
-api_url ="https://api.mymookh/request"
+api_url ="https://api.mymookh.com/request"
 header =  { "Authorization": "Bearer %s" % access_token }
 request = {
   "store_name": " ",
@@ -351,9 +353,16 @@ print (response.text)
 
 ```python
 import requests
+import json
 
-api = mookh.authorize('auth')
-api.stores.get()
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/stores/store_type/"
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url, headers=headers)
+print(response.text)
+
 ```
 
 ```shell
