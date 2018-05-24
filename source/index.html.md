@@ -11,8 +11,8 @@ toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
 #   - <a href='https://github.com/lord/slate'>Documentation Powered by</a>
 
-includes:
-  - errors
+# includes:
+#   - errors
 
 search: true
 ---
@@ -43,7 +43,7 @@ require 'mookh'
 
 api = Mookh::APIClient.authorize!('auth')
 ``` -->
-
+<!--
 ```python
 import mookh
 
@@ -54,13 +54,13 @@ api = mookh.authorize('auth')
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
   -H "Authorization: auth"
-```
+``` -->
 
-```javascript
+<!-- ```javascript
 const mookh = require('mookh');
 
 let api = mookh.authorize('auth');
-```
+``` -->
 
 HTTP requests to the REST API are protected with HTTP Basic authentication
 
@@ -79,7 +79,7 @@ api.users.get()
 ```
 
 ```shell
-curl "http://api.mymookh.com/api/users/user/"
+curl "https://api.mymookh.com/api/users/user/"
   -H "Authorization: auth"
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/users/user/"
 ```
@@ -124,7 +124,7 @@ This endpoint retrieves all users.
 
 ### HTTP Request
 
-`GET http://mookh.com/api/users/user/`
+`GET https://api.mymookh.com/users/user/`
 
 <!-- ### Query Parameters
 
@@ -152,7 +152,7 @@ api.users.get({<pk>})
 ```
 
 ```shell
-curl "http://api.mymookh.com/users/user/<pk>/"
+curl "https://api.mymookh.com/users/user/<pk>/"
   -H "Authorization: auth"
 
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/users/user/<pk>"
@@ -184,10 +184,9 @@ let max = api.users.get(<pk>);
 This endpoint retrieves a specific user.
 
 
-
 ### HTTP Request
 
-`GET http://mookh.com/users/b0d0cb74-0833-4af2-ab1f-51be03c1f64a`
+`GET https://api.mymookh.com/users/b0d0cb74-0833-4af2-ab1f-51be03c1f64a`
 
 ### URL Parameters
 
@@ -200,7 +199,7 @@ ID        | The ID of the user to retrieve. The ID is in UUID format
 
 ### HTTP Request
 
-`POST http://mookh.com/api/users/user/`
+`POST https://api.mymookh.com/users/user/`
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -234,7 +233,7 @@ A verification code is sent to the email upon registration
 
 ### HTTP Request
 
-`POST http://mookh.com/api/users/verification/`
+`POST https://api.mymookh.com/users/verification/`
 
 ##### Required Parameters
 
@@ -256,7 +255,7 @@ The above command returns JSON structured like this:
 
 ### HTTP Request
 
-`GET http://mookh.com/api/users/user/user_roles`
+`GET https://api.mymookh.com/users/user/user_roles`
 
 ```python
 import mookh
@@ -266,7 +265,7 @@ api.users.get({})
 ```
 
 ```shell
-curl "http://api.mymookh.com/users/user_roles/"
+curl "https://api.mymookh.com/users/user_roles/"
   -H "Authorization: auth"
 
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/users/user_roles/"
@@ -299,7 +298,7 @@ The above command returns JSON structured like this:
 
 ### HTTP Request
 
-`POST http://mookh.com/api/stores/user/request`
+`POST https://api.mymookh.com/stores/user/request`
 
 ### POST Parameters
 ##### Required Parameters
@@ -317,7 +316,7 @@ icon       |          | An icon of the store
 
 import requests
 access_token = "Access_Token"
-api_url ="htttps://mookh.api/request"
+api_url ="https://api.mymookh/request"
 header =  { "Authorization": "Bearer %s" % access_token }
 request = {
   "store_name": " ",
@@ -342,7 +341,7 @@ api.stores.get()
 ```
 
 ```shell
-curl "http://api.mymookh.com/stores/store_type/"
+curl "https://api.mymookh.com/stores/store_type/"
   -H "Authorization: auth"
 
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/store_type/"
@@ -375,7 +374,7 @@ This endpoint retrieves all store types.
 
 ### HTTP Request
 
-`GET http://mookh.com/api/stores/store_type/`
+`GET https://api.mmookh.com/stores/store_type/`
 
 ### Query Parameters
 
@@ -389,7 +388,7 @@ store id  | true    | The store id is passed
 
 ### HTTP Request
 
-`POST http://mookh.com/api/stores/store/`
+`POST https://api.mymookh.com/stores/store/`
 
 ### POST Parameters
 ##### Required Parameters
@@ -443,7 +442,7 @@ api.stores.get({<pk>})
 ```
 
 ```shell
-curl "http://mookh.com/api/stores/store/<pk>/"
+curl "https://api.mymookh.com/stores/store/<pk>/"
   -H "Authorization: auth"
 
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/store/<pk>/"
@@ -484,7 +483,7 @@ STATUS 200 OK
 
 ### HTTP Request
 
-`GET http://mookh.com/stores/store/<pk>`
+`GET https://api.mymookh.com/stores/store/<pk>`
 
 ### URL Parameters
 
@@ -500,7 +499,7 @@ ID        | The ID of the store is passed in UUID format
 
 ### HTTP Request
 
-`POST http://mookh.com/api/stores/event_category/`
+`POST https://api.mymookh.com/stores/event_category/`
 
 ### POST Parameters
 ##### Required Parameters
@@ -508,7 +507,7 @@ ID        | The ID of the store is passed in UUID format
 Parameter     | Default   | Description
 ---------     | -------   | -----------
 id            | Required  | created upon event creation. The ID is in UUID format
-category_name |           | The eveny category
+category_name |           | The event category
 event_label   |           |
 category_metadata |       | A JSONField category data to choose from
 
@@ -528,7 +527,7 @@ category_metadata |       | A JSONField category data to choose from
 
 ### HTTP Request
 
-`POST http://mookh.com/api/stores/event/public/`
+`POST https://api.mymookh.com/stores/event/public/`
 
 ### POST Parameters
 ##### Required Parameters
@@ -643,7 +642,7 @@ quantity    | Required     | The number of tickets available for sale at the sto
 
 ### HTTP Request
 
-`POST http://mookh.com/api/stores/order/`
+`POST https://api.mymookh.com/stores/order/`
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -688,13 +687,13 @@ order_detail  | Required  | The details of the order
 ### validate an order
 ### HTTP Request
 
-`POST http://mookh.com/api/stores/order/validate_order`
+`POST https://api.mymookh.com/stores/order/validate_order`
 
 
 ### verify an order
 ### HTTP Request
 
-`POST http://mookh.com/api/stores/order/verify_order`
+`POST https://api.mymookh.com/stores/order/verify_order`
 
 
 ## Retrieve a particular order
@@ -842,7 +841,6 @@ Parameter | Description
 ID        | The ID of the promo_code to retrieve. The ID is in UUID format
 
 
-
 # products
 
 The Mookh API lets you do the following with the Product resource.
@@ -850,7 +848,7 @@ The Mookh API lets you do the following with the Product resource.
 ### create a product category
 ### HTTP Request
 
-`POST http://mookh.com/api/products/category/`
+`POST https://api.mymookh.com/products/category/`
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -1004,7 +1002,7 @@ let max = api.users.get(<pk>);
 
 ### HTTP Request
 
-`GET http://mookh.com/api/products/`
+`GET https://api.mymookh.com/products/`
 
 HTTP/1.1 200 OK
 
@@ -1058,7 +1056,7 @@ This endpoint retrieves a list of products in a particular store.
 ## product variants
 ### HTTP Request
 
-`POST http://mookh.com/api/products/variant/`
+`POST https://api.mymookh.com/products/variant/`
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -1117,7 +1115,7 @@ The above command returns JSON structured like this:
 ## create digital media file
 ### HTTP Request
 
-`POST http://mookh.com/api/digital_content/media/`
+`POST https://api.mymookh.com/digital_content/media/`
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -1158,7 +1156,7 @@ author      |  Required   | name of the artist
 ## create digital album
 ### HTTP Request
 
-`POST http://mookh.com/api/digital_content/album/`
+`POST https://api.mymookh.com/digital_content/album/`
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -1193,7 +1191,7 @@ country     |  Required   | country of origin, i.e KE
 ## create genre
 ### HTTP Request
 
-`POST http://mookh.com/api/digital_content/genre/`
+`POST https://api.mymookh.com/digital_content/genre/`
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -1216,7 +1214,7 @@ name        |  Required   | genre of media files
 ## create a media_file
 ### HTTP Request
 
-`POST http://mookh.com/api/digital_content/media_files/`
+`POST https://api.mymookh.com/digital_content/media_files/`
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -1258,7 +1256,7 @@ metadata |    Required  | A JSON field that captures the media file data
 
 ### HTTP Request
 
-`POST http://mookh.com/api/digital_content/artist/`
+`POST https://api.mymookh.com/digital_content/artist/`
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -1284,6 +1282,28 @@ stage_name |    Required   | The name of the artist
 
 ## Get a list of digital content
 
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.stores.get()
+```
+
+```shell
+curl "https://api.mymookh.com/digital_content"
+  -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/digital_content/"
+
+```
+
+```javascript
+const mookh = require('mookh');
+
+let api = mookh.authorize('mookh');
+let max = api.stores.get();
+```
+
 The above command returns JSON structured like this:
 
 ```json
@@ -1295,12 +1315,35 @@ This endpoint retrieves a list of all digital content.
 
 ### HTTP Request
 
-`GET http://mookh.com/api/digital_content/`
+`GET https://api.mymookh.com/digital_content/`
 
 
 ## Get a particular album
 
-The above command returns JSON structured like this:
+
+```python
+import mookh
+
+api = mookh.authorize('auth')
+api.stores.get()
+```
+
+```shell
+curl "https://api.mymookh.com/album/<pk>"
+  -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/album/<pk>"
+
+```
+
+```javascript
+const mookh = require('mookh');
+
+let api = mookh.authorize('mookh');
+let max = api.stores.get({<pk>});
+```
+
+>The above command returns JSON structured like this:
 
 ```json
 {
@@ -1323,7 +1366,7 @@ This endpoint retrieves an album
 
 ### HTTP Request
 
-`GET http://mookh.com/api/digital_content/album/<pk>`
+`GET https://api.mymookh.com/digital_content/album/<pk>`
 
 ##### Required Parameters
 
