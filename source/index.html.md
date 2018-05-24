@@ -152,9 +152,6 @@ api.users.get({<pk>})
 ``` -->
 
 ```python
-
-# api = mookh.authorize('auth')
-# api.users.get({<pk>})
 import json
 import requests
 api_token = 'api_token'
@@ -275,9 +272,15 @@ The above command returns JSON structured like this:
 
 ```python
 import requests
+import json
 
-api = mookh.authorize('auth')
-api.users.get({})
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/users/user/user_roles/"
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url, headers=headers)
+print(response)
 ```
 
 ```shell
@@ -314,7 +317,7 @@ The above command returns JSON structured like this:
 
 ### HTTP Request
 
-`POST https://api.mymookh.com/stores/user/request`
+`POST https://api.mymookh.com/stores/store_type/`
 
 ### POST Parameters
 ##### Required Parameters
@@ -334,18 +337,16 @@ import requests
 import json
 
 access_token = "Access_Token"
-api_url ="https://api.mymookh.com/request"
+api_url = "https://api.mymookh.com/stores/store_type/"
 header =  { "Authorization": "Bearer %s" % access_token }
-request = {
+data = {
   "store_name": " ",
   "store_label":" ",
   "icon":" ",
   "description": " ",
 }
 
-
-response = requests.post(api_url, json = request, headers=headers)
-
+response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
 
@@ -414,6 +415,29 @@ store id  | true    | The store id is passed
 ### HTTP Request
 
 `POST https://api.mymookh.com/stores/store/`
+
+```python
+import requests
+import json
+
+access_token = "Access_Token"
+api_url = "https://api.mymookh.com/stores/store/"
+header =  { "Authorization": "Bearer %s" % access_token }
+data = {
+   "manager_fk": "be67ea3a-774c-4cce-9887-a8fdcc3fd54c",
+    "manager_name": "beth wanjiku",
+    "created_by": null,
+    "store_name": "story",
+    "balances": 0,
+    "store_description": null,
+    "store_type_fk": "daf67422-0e40-4a6e-969e-7a58406e229a",
+    "store_type_name": "mymookh",
+    "store_type_description": "selling tickets",
+}
+
+response = requests.post(api_url, json = data, headers=headers)
+print (response.text)
+```
 
 ### POST Parameters
 ##### Required Parameters
