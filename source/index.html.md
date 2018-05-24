@@ -72,7 +72,7 @@ HTTP requests to the REST API are protected with HTTP Basic authentication
 + Response 200 (application/json)
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.users.get()
@@ -145,7 +145,7 @@ api.users.get({<pk>})
 ``` -->
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.users.get({<pk>})
@@ -258,7 +258,7 @@ The above command returns JSON structured like this:
 `GET https://api.mymookh.com/users/user/user_roles`
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.users.get({})
@@ -334,7 +334,7 @@ print (response.text)
 ## Get All stores types
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.stores.get()
@@ -435,7 +435,7 @@ api.stores.get({<pk>})
 ``` -->
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.stores.get({<pk>})
@@ -699,7 +699,7 @@ order_detail  | Required  | The details of the order
 ## Retrieve a particular order
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.stores.get({<pk>})
@@ -807,7 +807,7 @@ end_date      | Required   | The end of promo
 ## Retrieve a particular promo code
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.stores.get({<pk>})
@@ -914,7 +914,7 @@ delivery_days  |  Required  | The number of delivery days
 ## Retrieve a particular product
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.stores.get({<pk>})
@@ -979,7 +979,7 @@ This endpoint retrieves a specific product.
 
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.stores.get({<pk>})
@@ -1283,7 +1283,7 @@ stage_name |    Required   | The name of the artist
 ## Get a list of digital content
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.stores.get()
@@ -1322,7 +1322,7 @@ This endpoint retrieves a list of all digital content.
 
 
 ```python
-import mookh
+import requests
 
 api = mookh.authorize('auth')
 api.stores.get()
