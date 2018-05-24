@@ -56,11 +56,14 @@ curl "api_endpoint_here"
   -H "Authorization: auth"
 ``` -->
 
-<!-- ```javascript
-const mookh = require('mookh');
+```javascript
+let api_url = "https://api.mymookh.com/"
 
-let api = mookh.authorize('auth');
-``` -->
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     return xmlHttp.responseText;
+```
 
 HTTP requests to the REST API are protected with HTTP Basic authentication
 
@@ -71,11 +74,17 @@ HTTP requests to the REST API are protected with HTTP Basic authentication
 
 + Response 200 (application/json)
 
+```shell
+curl "https://api.mymookh.com/api/users/user/"
+  -H "Authorization: auth"
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/users/user/"
+```
+
 ```python
 import json
 import requests
 api_token = 'api_token'
-api_url = "https://api.mymookh.com/api/users/user/"
+api_url = "https://api.mymookh.com/users/user/"
 data = {}
 headers = {'Content-Type': 'application/json',
             'Accept': 'application/json'
@@ -85,18 +94,14 @@ print(response)
 
 ```
 
-```shell
-curl "https://api.mymookh.com/api/users/user/"
-  -H "Authorization: auth"
-curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/users/user/"
+```javascript
+let api_url = "https://api.mymookh.com/users/user/"
+
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     return xmlHttp.responseText;
 ```
-
-<!-- ```javascript
-const mookh = require('mookh');
-
-let api = users.authorize('mookh');
-let kittens = api.users.get();
-``` -->
 
 > The above command returns JSON structured like this:
 
@@ -1923,6 +1928,14 @@ This endpoint retrieves a list of all digital content.
 
 ## Get a particular album
 
+```shell
+curl "https://api.mymookh.com/album/<pk>"
+  -H "Authorization: auth"
+
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/album/<pk>"
+
+```
+
 ```python
 import requests
 import json
@@ -1936,13 +1949,6 @@ response = requests.get(api_url({:id}), data=data)
 print(response)
 ```
 
-```shell
-curl "https://api.mymookh.com/album/<pk>"
-  -H "Authorization: auth"
-
-curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/album/<pk>"
-
-```
 
 ```javascript
 // const mookh = require('mookh');
