@@ -850,18 +850,24 @@ api = Mookh::APIClient.authorize!('auth')
 api.stores.get({<pk>})
 ``` -->
 <pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'api_token'</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s">"https://api.mymookh.com/api/stores/store/"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+            <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+           <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_token</span><span class="p">)}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">({:</span><span class="n">d</span><span class="p">}),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mymookh.com/stores/store/&lt;pk&gt;/"</span>
   -H <span class="s2">"Authorization: auth"</span>
 
 curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <span class="s2">"Accept: application/json"</span>  <span class="s2">"https://api.mymookh.com/stores/store/&lt;pk&gt;/"</span>
 
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">mookh</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mookh'</span><span class="p">);</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="c1">// const mookh = require('mookh');</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">mookh</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'mookh'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">stores</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="o">&lt;</span><span class="nx">pk</span><span class="o">&gt;</span><span class="p">);</span>
+<span class="c1">// let api = mookh.authorize('mookh');</span>
+<span class="c1">// let max = api.stores.get(&lt;pk&gt;);</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1134,9 +1140,15 @@ STATUS 200 OK</p>
 <h3 id='verify-an-order'>verify an order</h3><h3 id='http-request-15'>HTTP Request</h3>
 <p><code>POST https://api.mymookh.com/stores/order/verify_order</code></p>
 <h2 id='retrieve-a-particular-order'>Retrieve a particular order</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'api_token'</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s">"https://api.mymookh.com/api/stores/orders/"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+            <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+           <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_token</span><span class="p">)}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">({:</span><span class="nb">id</span><span class="p">}),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mymookh.com/stores/orders/&lt;pk&gt;/"</span>
   -H <span class="s2">"Authorization: auth"</span>
 
@@ -1242,9 +1254,16 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 </tr>
 </tbody></table>
 <h2 id='retrieve-a-particular-promo-code'>Retrieve a particular promo code</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'api_token'</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s">"https://api.mymookh.com/api/stores/promo_codes/"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+            <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+           <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_token</span><span class="p">)}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">({:</span><span class="nb">id</span><span class="p">}),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mymookh.com/stores/promo_codes/&lt;pk&gt;/"</span>
   -H <span class="s2">"Authorization: auth"</span>
 
@@ -1351,9 +1370,16 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 </tr>
 </tbody></table>
 <h2 id='retrieve-a-particular-product'>Retrieve a particular product</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'api_token'</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s">"https://api.mymookh.com/api/productd/product/"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+            <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+           <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_token</span><span class="p">)}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">({:</span><span class="nb">id</span><span class="p">}),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mymookh.com/products/product/&lt;pk&gt;/"</span>
   -H <span class="s2">"Authorization: auth"</span>
 
@@ -1402,9 +1428,16 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 </span></code></pre>
 <p>This endpoint retrieves a specific product.</p>
 <h2 id='retrieve-all-products'>Retrieve all products</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'api_token'</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s">"https://api.mymookh.com/api/products/product/"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+            <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+           <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_token</span><span class="p">)}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
 </code></pre><pre class="highlight shell tab-shell"><code>  curl -X GET <span class="s2">"https://api.mymookh.com/products/product/"</span>
   -H <span class="s2">"Authorization: auth"</span>
 
@@ -1462,7 +1495,19 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 <p>This endpoint retrieves a list of products in a particular store.</p>
 <h2 id='product-variants'>product variants</h2><h3 id='http-request-23'>HTTP Request</h3>
 <p><code>POST https://api.mymookh.com/products/variant/</code></p>
-<h3 id='post-parameters-12'>POST Parameters</h3>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'api_token'</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s">"https://api.mymookh.com/api/products/variant/"</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="s">"product"</span><span class="p">:</span> <span class="s">"a56b8f6f-a86a-4446-bb2f-62d028904c67"</span><span class="p">,</span> <span class="s">"products_metadata"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="s">"shipping_metadata"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="s">"promotion_metadata"</span><span class="p">:</span> <span class="s">""</span><span class="p">}</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+            <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+           <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_token</span><span class="p">)}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>  <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+</code></pre><h3 id='post-parameters-12'>POST Parameters</h3>
 <p>The above command returns JSON structured like this:</p>
 <pre class="highlight json tab-json"><code><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -1742,9 +1787,16 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><h2 id='get-a-list-of-digital-content'>Get a list of digital content</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s">'api_token'</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s">"https://api.mymookh.com/api/digital_content/"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Content-Type'</span><span class="p">:</span> <span class="s">'application/json'</span><span class="p">,</span>
+            <span class="s">'Accept'</span><span class="p">:</span> <span class="s">'application/json'</span>
+           <span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'Bearer {0}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">api_token</span><span class="p">)}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
 </code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://api.mymookh.com/digital_content"</span>
   -H <span class="s2">"Authorization: auth"</span>
 
