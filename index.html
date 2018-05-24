@@ -460,7 +460,7 @@ let api = mookh.authorize('auth');
 <ul>
 <li>Response 200 (application/json)</li>
 </ul>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -524,7 +524,7 @@ require 'mookh'
 api = Mookh::APIClient.authorize!('auth')
 api.users.get({<pk>})
 ``` -->
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
@@ -647,7 +647,7 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 </ul>
 <h2 id='get-user-roles'>Get user roles</h2><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://api.mymookh.com/users/user/user_roles</code></p>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">get</span><span class="p">({})</span>
@@ -717,7 +717,7 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">request</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
 
 <span class="k">print</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
-</code></pre><h2 id='get-all-stores-types'>Get All stores types</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+</code></pre><h2 id='get-all-stores-types'>Get All stores types</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -824,7 +824,7 @@ require 'mookh'
 api = Mookh::APIClient.authorize!('auth')
 api.stores.get({<pk>})
 ``` -->
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
@@ -1108,7 +1108,7 @@ STATUS 200 OK</p>
 <p><code>POST https://api.mymookh.com/stores/order/validate_order</code></p>
 <h3 id='verify-an-order'>verify an order</h3><h3 id='http-request-15'>HTTP Request</h3>
 <p><code>POST https://api.mymookh.com/stores/order/verify_order</code></p>
-<h2 id='retrieve-a-particular-order'>Retrieve a particular order</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<h2 id='retrieve-a-particular-order'>Retrieve a particular order</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
@@ -1216,7 +1216,7 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 <td>The end of promo</td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-a-particular-promo-code'>Retrieve a particular promo code</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<h2 id='retrieve-a-particular-promo-code'>Retrieve a particular promo code</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
@@ -1325,7 +1325,7 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 <td>The number of delivery days</td>
 </tr>
 </tbody></table>
-<h2 id='retrieve-a-particular-product'>Retrieve a particular product</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<h2 id='retrieve-a-particular-product'>Retrieve a particular product</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
@@ -1376,7 +1376,7 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific product.</p>
-<h2 id='retrieve-all-products'>Retrieve all products</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<h2 id='retrieve-all-products'>Retrieve all products</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="o">&lt;</span><span class="n">pk</span><span class="o">&gt;</span><span class="p">})</span>
@@ -1716,7 +1716,7 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
     </span><span class="s2">"stage_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Drake"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h2 id='get-a-list-of-digital-content'>Get a list of digital content</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+</span></code></pre><h2 id='get-a-list-of-digital-content'>Get a list of digital content</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
@@ -1737,7 +1737,7 @@ curl -X GET -H <span class="s2">"Content-Type: application/json"</span> -H  <spa
 <p>This endpoint retrieves a list of all digital content.</p>
 <h3 id='http-request-29'>HTTP Request</h3>
 <p><code>GET https://api.mymookh.com/digital_content/</code></p>
-<h2 id='get-a-particular-album'>Get a particular album</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">mookh</span>
+<h2 id='get-a-particular-album'>Get a particular album</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="n">mookh</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'auth'</span><span class="p">)</span>
 <span class="n">api</span><span class="o">.</span><span class="n">stores</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
