@@ -72,12 +72,15 @@ HTTP requests to the REST API are protected with HTTP Basic authentication
 + Response 200 (application/json)
 
 ```python
+import json
 import requests
-
-url = "https://api.mymookh.com/api/users/user/"
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/users/user/"
 data = {}
-headers = {"Accept": "application/json"}
-response = requests.get(url, data=data)
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url, data=data)
 print(response)
 
 ```
@@ -149,10 +152,19 @@ api.users.get({<pk>})
 ``` -->
 
 ```python
-import requests
 
-api = mookh.authorize('auth')
-api.users.get({<pk>})
+# api = mookh.authorize('auth')
+# api.users.get({<pk>})
+import json
+import requests
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/users/user/"
+data = {}
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url{:id}, data=data)
+print(response)
 ```
 
 ```shell
