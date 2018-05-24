@@ -461,9 +461,15 @@ api.stores.get({<pk>})
 
 ```python
 import requests
+import json
 
-api = mookh.authorize('auth')
-api.stores.get({<pk>})
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/stores/store/"
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url({:d}), headers=headers)
+print(response.text)
 ```
 
 ```shell
@@ -475,10 +481,10 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 ```
 
 ```javascript
-const mookh = require('mookh');
+// const mookh = require('mookh');
 
-let api = mookh.authorize('mookh');
-let max = api.stores.get(<pk>);
+// let api = mookh.authorize('mookh');
+// let max = api.stores.get(<pk>);
 ```
 
 > The above command returns JSON structured like this:
@@ -725,9 +731,15 @@ order_detail  | Required  | The details of the order
 
 ```python
 import requests
+import json
 
-api = mookh.authorize('auth')
-api.stores.get({<pk>})
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/stores/orders/"
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url({:id}), headers=headers)
+print(response.text)
 ```
 
 ```shell
@@ -833,9 +845,16 @@ end_date      | Required   | The end of promo
 
 ```python
 import requests
+import json
 
-api = mookh.authorize('auth')
-api.stores.get({<pk>})
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/stores/promo_codes/"
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url({:id}), headers=headers)
+print(response.text)
+
 ```
 
 ```shell
@@ -940,9 +959,16 @@ delivery_days  |  Required  | The number of delivery days
 
 ```python
 import requests
+import json
 
-api = mookh.authorize('auth')
-api.stores.get({<pk>})
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/productd/product/"
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url({:id}), headers=headers)
+print(response.text)
+
 ```
 
 ```shell
@@ -1005,9 +1031,16 @@ This endpoint retrieves a specific product.
 
 ```python
 import requests
+import json
 
-api = mookh.authorize('auth')
-api.stores.get({<pk>})
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/products/product/"
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url, headers=headers)
+print(response.text)
+
 ```
 
 ```shell
@@ -1082,6 +1115,22 @@ This endpoint retrieves a list of products in a particular store.
 ### HTTP Request
 
 `POST https://api.mymookh.com/products/variant/`
+
+
+```python
+import requests
+import json
+
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/products/variant/"
+data = { "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67", "products_metadata": "", "shipping_metadata": "", "promotion_metadata": ""}
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.post(api_url, json=data,  headers=headers)
+print(response.text)
+
+```
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -1309,9 +1358,16 @@ stage_name |    Required   | The name of the artist
 
 ```python
 import requests
+import json
 
-api = mookh.authorize('auth')
-api.stores.get()
+api_token = 'api_token'
+api_url = "https://api.mymookh.com/api/digital_content/"
+headers = {'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           'Authorization': 'Bearer {0}'.format(api_token)}
+response = requests.get(api_url, headers=headers)
+print(response.text)
+
 ```
 
 ```shell
