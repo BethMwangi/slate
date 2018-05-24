@@ -172,10 +172,10 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 ```
 
 ```javascript
-const mookh = require('mookh');
+// const mookh = require('mookh');
 
-let api = mookh.authorize('mookh');
-let max = api.users.get(<pk>);
+// let api = mookh.authorize('mookh');
+// let max = api.users.get(<pk>);
 ```
 
 > The above command returns JSON structured like this:
@@ -291,10 +291,10 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 ```
 
 ```javascript
-const mookh = require('mookh');
+// const mookh = require('mookh');
 
-let api = mookh.authorize('mookh');
-let max = api.users.get();
+// let api = mookh.authorize('mookh');
+// let max = api.users.get();
 ```
 
 ### POST Parameters
@@ -776,10 +776,10 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 
 
 ```javascript
-const mookh = require('mookh');
+// const mookh = require('mookh');
 
-let api = mookh.authorize('mookh');
-let max = api.users.get(<pk>);
+// let api = mookh.authorize('mookh');
+// let max = api.users.get(<pk>);
 ```
 
 
@@ -890,10 +890,10 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 ```
 
 ```javascript
-const mookh = require('mookh');
+// const mookh = require('mookh');
 
-let api = mookh.authorize('mookh');
-let max = api.users.get(<pk>);
+// let api = mookh.authorize('mookh');
+// let max = api.users.get(<pk>);
 ```
 
 ### HTTP Request
@@ -1005,10 +1005,10 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 
 
 ```javascript
-const mookh = require('mookh');
+// const mookh = require('mookh');
 
-let api = mookh.authorize('mookh');
-let max = api.users.get(<pk>);
+// let api = mookh.authorize('mookh');
+// let max = api.users.get(<pk>);
 ```
 
 
@@ -1076,10 +1076,10 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 
 
 ```javascript
-const mookh = require('mookh');
+// const mookh = require('mookh');
 
-let api = mookh.authorize('mookh');
-let max = api.users.get(<pk>);
+// let api = mookh.authorize('mookh');
+// let max = api.users.get(<pk>);
 ```
 
 ### HTTP Request
@@ -1403,10 +1403,10 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 ```
 
 ```javascript
-const mookh = require('mookh');
+// const mookh = require('mookh');
 
-let api = mookh.authorize('mookh');
-let max = api.stores.get();
+// let api = mookh.authorize('mookh');
+// let max = api.stores.get();
 ```
 
 The above command returns JSON structured like this:
@@ -1442,10 +1442,10 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 ```
 
 ```javascript
-const mookh = require('mookh');
+// const mookh = require('mookh');
 
-let api = mookh.authorize('mookh');
-let max = api.stores.get({<pk>});
+// let api = mookh.authorize('mookh');
+// let max = api.stores.get({<pk>});
 ```
 
 >The above command returns JSON structured like this:
