@@ -47,6 +47,41 @@ response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
 
+
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/digital_content/media/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+            "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+            "album": [],
+            "artist": [],
+            "genre": null,
+            "name": "music",
+            "description": "",
+            "thumbnail": "",
+            "country": "AO",
+            "author": "coldplay"
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
+```
+
 ### POST Parameters
 The above command returns JSON structured like this:
 
@@ -123,6 +158,37 @@ data = {
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/digital_content/album/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+        "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+        "genre": null,
+        "name": "",
+        "description": "coldplay we are young",
+        "thumbnail": "",
+        "publish_date": "2018-05-22T21:54:00.861162Z",
+        "country": "AO"
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
+```
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -181,6 +247,32 @@ data = {
 
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
+```
+
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/digital_content/genre/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+         "name": "hiphop"
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
 ```
 
 ### POST Parameters
@@ -257,6 +349,46 @@ response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
 
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/digital_content/media_files/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+        "name": "God's plan",
+    "digital_media": "c25ba93c-fe98-46e3-b027-922820246f99",
+    "media_type": "AUDIO",
+    "media_format": "mp3",
+    "description": "",
+    "file": "",
+    "media_player_url": "",
+    "thumbnail": "",
+    "publish_date": "2018-05-22T22:12:22.643277Z",
+    "is_published": true,
+    "metadata": {
+        "price": "9.20",
+        "size": "20mb"
+    }
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
+```
+
+
 ### POST Parameters
 The above command returns JSON structured like this:
 
@@ -323,6 +455,33 @@ data = {
 
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
+```
+
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/digital_content/artist/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+            "user": "a9cfe48c-84fe-4d57-932d-db17d071d937",
+            "stage_name": "Drake"
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
 ```
 
 ### POST Parameters

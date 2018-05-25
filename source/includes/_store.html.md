@@ -38,6 +38,35 @@ response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
 
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/stores/store_type/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+        "store_name": " ",
+        "store_label":" ",
+        "icon":" ",
+        "description": " ",
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
+```
+
 ## Get All stores types
 
 ```python
@@ -129,11 +158,45 @@ data = {
     "store_description": null,
     "store_type_fk": "daf67422-0e40-4a6e-969e-7a58406e229a",
     "store_type_name": "mymookh",
-    "store_type_description": "selling tickets",
+    "store_type_description": "selling tickets"
 }
 
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
+```
+
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/stores/store/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+    "manager_fk": "be67ea3a-774c-4cce-9887-a8fdcc3fd54c",
+    "manager_name": "beth wanjiku",
+    "created_by": null,
+    "store_name": "story",
+    "balances": 0,
+    "store_description": null,
+    "store_type_fk": "daf67422-0e40-4a6e-969e-7a58406e229a",
+    "store_type_name": "mymookh",
+    "store_type_description": "selling tickets"
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
 ```
 
 ### POST Parameters

@@ -36,6 +36,34 @@ data = {
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/products/category/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+            "name": "phone",
+            "description": null,
+            "parent": "63546dc4-f314-418a-9ccc-8eba97267499",
+            "category_metadata": {}
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
+```
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -97,6 +125,37 @@ data = {
 
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
+```
+
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/products/product/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+        "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+        "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+        "category_name": "phone",
+        "name": "speaker",
+        "brand": "",
+        "description": "bluetooth speakers"
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
 ```
 
 ### POST Parameters
@@ -311,13 +370,47 @@ import json
 
 api_token = 'api_token'
 api_url = "https://api.mymookh.com/api/products/variant/"
-data = { "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67", "products_metadata": "", "shipping_metadata": "", "promotion_metadata": ""}
+data = {
+    "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+    "products_metadata": "",
+     "shipping_metadata": "",
+    "promotion_metadata": ""
+    }
 headers = {'Content-Type': 'application/json',
             'Accept': 'application/json'
            'Authorization': 'Bearer {0}'.format(api_token)}
 response = requests.post(api_url, json=data,  headers=headers)
 print(response.text)
 
+```
+
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/products/variant/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+        "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+        "products_metadata": "",
+        "shipping_metadata": "",
+        "promotion_metadata": ""
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
 ```
 
 ### POST Parameters

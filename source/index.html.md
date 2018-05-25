@@ -424,6 +424,41 @@ print (response.text)
 
 ```
 
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/stores/event/public/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+    "event_name": "Color run",
+    "event_venue": null,
+    "event_description": "the color run event",
+    "event_category_fk": "711ab531-511a-4ee3-8b7e-676ecc8f753d",
+    "parent_event_id": null,
+    "category_name": "cat",
+    "event_poster": null,
+    "store_fk": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+    "store_type_id": "daf67422-0e40-4a6e-969e-7a58406e229a",
+    "store_name": "story"
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
+```
+
 ### POST Parameters
 ##### Required Parameters
 
@@ -513,6 +548,44 @@ data = {
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 
+```
+
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/stores/tickets/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+      "id": "54b7aee8-5a65-4a20-888c-8c26676b763c",
+    "ticket_name": "Color run",
+    "event_fk": "bd0e90a0-1f81-4d9a-90f7-d63e088335a3",
+    "schedule_name": null,
+    "ticket_description": null,
+    "schedule_fk": null,
+    "ticket_value": "0.00",
+    "is_published": false,
+    "ticket_metadata": {},
+    "quantity": 20,
+    "tickets_bought": 0,
+    "tickets_available": 20,
+    "is_available": true
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
 ```
 
 
@@ -625,6 +698,48 @@ print (response.text)
 
 ```
 
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/stores/order/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+        "customer": "mwangi",
+"card": "2332111",
+"store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+"agent": "Dee",
+"agent_name": "phyl",
+"event_name": "skiza",
+"event": "null",
+"order_items_summary": "null",
+"order_detail": "null",
+"order_status": "",
+"order_number": "92873",
+"currency": "Ksh",
+"order_amount": "90",
+"order_balance": "90",
+"promo_code": "7662728",
+"promo_code_value": "900",
+"payment_method": "MPESA"
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
+```
+
 
 ### POST Parameters
 The above command returns JSON structured like this:
@@ -691,7 +806,7 @@ import requests
 import json
 
 access_token = "Access_Token"
-api_url = "https://api.mymookh.com/order/validate_order/"
+api_url = "https://api.mymookh.com/stores/order/validate_order/"
 header =  { "Authorization": "Bearer %s" % access_token }
 data = {
     "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
@@ -709,6 +824,41 @@ data = {
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 
+```
+
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/stores/order/validate_order/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+        "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+        "store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+        "card": "78387",
+        "agent_name": "pikado",
+        "event_name": "color run",
+        "event": "event",
+        "order_items_summary": "lorm ipsum dolar sit",
+        "order_detail": "",
+        "order_status": "",
+        "order_number": "39393",
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
 ```
 
 
@@ -756,6 +906,41 @@ print (response.text)
 
 ```
 
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/stores/order/verify_order/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+        "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+        "store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+        "card": "78387",
+        "agent_name": "pikado",
+        "event_name": "color run",
+        "event": "event",
+        "order_items_summary": "lorm ipsum dolar sit",
+        "order_detail": "lorem ipsum",
+        "order_status": "",
+        "order_number": "39393",
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
+```
+
 
 ## Retrieve a particular order
 
@@ -788,8 +973,6 @@ let api_url = "https://api.mymookh.com/stores/orders/<pk>"
      var response = xmlHttp.responseText;
      return JSON.parse(response);
 ```
-
-
 
 
 ### HTTP Request
@@ -874,6 +1057,42 @@ data = {
 
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
+```
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/stores/promo_codes/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+        "is_active": "true",
+        "store": "63546dc4-f314-418a-9ccc-8eba97267499",
+        "event": "null",
+        "promo_name": "stylez",
+        "value": "3500",
+        "quantity": "20",
+        "promo_value": "900",
+        "is_percentage": "false",
+        "is_fixed": "false",
+        "is_custom": "true",
+        "start_date": "",
+        "end_date":"",
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
 ```
 
 ### POST Parameters
