@@ -258,6 +258,15 @@ curl "https://api.mymookh.com/stores/store/<pk>/"
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/store/<pk>/"
 
 ```
+```javascript
+let api_url = "https://api.mymookh.com/stores/store/<pk>"
+
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
+```
 
 
 

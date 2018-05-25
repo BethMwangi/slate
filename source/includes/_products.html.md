@@ -207,7 +207,7 @@ import requests
 import json
 
 api_token = 'api_token'
-api_url = "https://api.mymookh.com/api/productd/product/"
+api_url = "https://api.mymookh.com/products/product/"
 headers = {'Content-Type': 'application/json',
             'Accept': 'application/json'
            'Authorization': 'Bearer {0}'.format(api_token)}
@@ -221,6 +221,16 @@ print(response.text)
 
 // let api = mookh.authorize('mookh');
 // let max = api.users.get(<pk>);
+```
+
+```javascript
+let api_url = "https://api.mymookh.com/products/product/<pk>"
+
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
 ```
 
 
@@ -265,10 +275,10 @@ This endpoint retrieves a specific product.
 ## Retrieve all products
 
 ```shell
-  curl -X GET "https://api.mymookh.com/products/product/"
+  curl -X GET "https://api.mymookh.com/products/"
   -H "Authorization: auth"
 
-curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/products/product/"
+curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/products/"
 ```
 
 ```python
@@ -276,7 +286,7 @@ import requests
 import json
 
 api_token = 'api_token'
-api_url = "https://api.mymookh.com/api/products/product/"
+api_url = "https://api.mymookh.com/api/products/"
 headers = {'Content-Type': 'application/json',
             'Accept': 'application/json'
            'Authorization': 'Bearer {0}'.format(api_token)}
@@ -285,12 +295,23 @@ print(response.text)
 
 ```
 
-```javascript
+<!-- ```javascript
 // const mookh = require('mookh');
 
 // let api = mookh.authorize('mookh');
 // let max = api.users.get(<pk>);
+``` -->
+```javascript
+let api_url = "https://api.mymookh.com/products/"
+
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
 ```
+
+
 
 ### HTTP Request
 

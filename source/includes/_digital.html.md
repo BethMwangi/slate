@@ -521,7 +521,7 @@ import requests
 import json
 
 api_token = 'api_token'
-api_url = "https://api.mymookh.com/api/digital_content/"
+api_url = "https://api.mymookh.com/digital_content/"
 headers = {'Content-Type': 'application/json',
             'Accept': 'application/json'
            'Authorization': 'Bearer {0}'.format(api_token)}
@@ -530,11 +530,15 @@ print(response.text)
 
 ```
 
-```javascript
-// const mookh = require('mookh');
 
-// let api = mookh.authorize('mookh');
-// let max = api.stores.get();
+```javascript
+let api_url = "https://api.mymookh.com/digital_content/"
+
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
 ```
 
 The above command returns JSON structured like this:
@@ -566,7 +570,7 @@ import requests
 import json
 
 api_token = 'api_token'
-api_url = "https://api.mymookh.com/api/album/"
+api_url = "https://api.mymookh.com/album/"
 headers = {'Content-Type': 'application/json',
             'Accept': 'application/json'
            'Authorization': 'Bearer {0}'.format(api_token)}
@@ -576,10 +580,13 @@ print(response)
 
 
 ```javascript
-// const mookh = require('mookh');
+let api_url = "https://api.mymookh.com/album/<pk>"
 
-// let api = mookh.authorize('mookh');
-// let max = api.stores.get({<pk>});
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
 ```
 
 >The above command returns JSON structured like this:
