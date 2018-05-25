@@ -41,17 +41,6 @@ Content-Type  |  Only application/json content type is supported.
 
 > To authorize, use this code:
 
-<!-- ```ruby
-require 'mookh'
-
-api = Mookh::APIClient.authorize!('auth')
-``` -->
-<!--
-```python
-import mookh
-
-api = mookh.authorize('auth')
-```
 
 ```shell
 # With shell, you can just pass the correct header with each request
@@ -65,7 +54,8 @@ let api_url = "https://api.mymookh.com/"
  var xmlHttp = new XMLHttpRequest();
      xmlHttp.open( "GET", api_url, false );
      xmlHttp.send();
-     return xmlHttp.responseText;
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
 ```
 
 HTTP requests to the REST API are protected with HTTP Basic authentication
@@ -103,7 +93,8 @@ let api_url = "https://api.mymookh.com/users/user/"
  var xmlHttp = new XMLHttpRequest();
      xmlHttp.open( "GET", api_url, false );
      xmlHttp.send();
-     return xmlHttp.responseText;
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
 ```
 
 > The above command returns JSON structured like this:
@@ -152,12 +143,6 @@ is_active | true | If set to false, the result will also include users
 
 + Response 200 (application/json)
 
-<!-- ```ruby
-require 'mookh'
-
-api = Mookh::APIClient.authorize!('auth')
-api.users.get({<pk>})
-``` -->
 
 ```python
 import json
@@ -183,6 +168,16 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 
 // let api = mookh.authorize('mookh');
 // let max = api.users.get(<pk>);
+```
+
+```javascript
+let api_url = "https://api.mymookh.com/users/user/<pk>"
+
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
 ```
 
 > The above command returns JSON structured like this:
@@ -307,7 +302,7 @@ let api_url = "https://api.mymookh.com/users/user_roles/"
      return xmlHttp.responseText;
 ```
 
-### POST Parameters
+### GET Parameters
 The above command returns JSON structured like this:
 
 ```json
@@ -319,8 +314,6 @@ The above command returns JSON structured like this:
 ```
 
 + Response Status  200 (application/json)
-
-
 
 
 # events
@@ -347,6 +340,34 @@ data = {
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 
+```
+
+```javascript
+var request = require('request'),
+  oauth_token = "Access_Token"
+  url = "https://api.mymookh.com/stores/event_category/"
+  auth = "Bearer " + oauth_token;
+
+  request(
+    {
+      method: 'POST'
+      url : url,
+      headers : {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization" : auth
+      },
+    json : {
+     "category_name": "cat",
+    "event_label": "conference",
+    "category_metadata": null
+    }
+  },
+    function (error, response, body) {
+      // TODO: Use the body object to extract the response
+      console.log(body)
+    }
+  )
 ```
 
 ### POST Parameters
@@ -758,7 +779,15 @@ curl "https://api.mymookh.com/stores/orders/<pk>/"
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/orders/<pk>/"
 
 ```
+```javascript
+let api_url = "https://api.mymookh.com/stores/orders/<pk>"
 
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
+```
 
 
 
@@ -903,11 +932,15 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 
 ```
 
-```javascript
-// const mookh = require('mookh');
 
-// let api = mookh.authorize('mookh');
-// let max = api.users.get(<pk>);
+```javascript
+let api_url = "https://api.mymookh.com/stores/promo_codes/<pk>"
+
+ var xmlHttp = new XMLHttpRequest();
+     xmlHttp.open( "GET", api_url, false );
+     xmlHttp.send();
+     var response = xmlHttp.responseText;
+     return JSON.parse(response);
 ```
 
 ### HTTP Request
