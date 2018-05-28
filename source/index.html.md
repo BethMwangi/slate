@@ -117,7 +117,7 @@ let api_url = "https://api.mymookh.com/users/user/"
      return JSON.parse(response);
 ```
 
-<!-- ```PHP
+```PHP
 
 <?php
 $url = 'https://api.mymookh.com/users/user/';
@@ -133,7 +133,7 @@ curl_setopt($curl, CURLOPT_HEADER, true);
 $response = curl_exec($curl);
 curl_close($curl);
 ?>
-``` -->
+```
 
 > The above command returns JSON structured like this:
 
@@ -400,6 +400,34 @@ var request = require('request'),
       console.log(body)
     }
   )
+```
+
+```PHP
+<?php
+$url = 'https://api.mymookh.com/stores/event_category/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'category_name' => ' ',
+  'event_label' => ' ',
+  'category_metadata' => ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true); // set post data to true
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
 ```
 
 ### POST Parameters
