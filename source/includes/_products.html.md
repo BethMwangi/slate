@@ -36,7 +36,8 @@ data = {
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
-```javascript
+
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/products/category/"
@@ -63,6 +64,35 @@ var request = require('request'),
       console.log(body)
     }
   )
+```
+
+```PHP
+<?php
+$url = 'https://api.mymookh.com/products/category/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'name' => ' ',
+  'description' => ' ',
+  'parent' => ' ',
+  'category_metadata' => ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
 ```
 
 ### POST Parameters
@@ -127,7 +157,7 @@ response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/products/product/"
@@ -156,6 +186,37 @@ var request = require('request'),
       console.log(body)
     }
   )
+```
+
+```PHP
+<?php
+$url = 'https://api.mymookh.com/products/product/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'store' => ' ',
+  'category' => ' ',
+  'category_name' => ' ',
+  'name' => ' ',
+  'brand' => ' ',
+  'description' => ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
 ```
 
 ### POST Parameters
@@ -216,14 +277,8 @@ print(response.text)
 
 ```
 
-```javascript
-// const mookh = require('mookh');
 
-// let api = mookh.authorize('mookh');
-// let max = api.users.get(<pk>);
-```
-
-```javascript
+```Javascript
 let api_url = "https://api.mymookh.com/products/product/<pk>"
 
  var xmlHttp = new XMLHttpRequest();
@@ -295,13 +350,8 @@ print(response.text)
 
 ```
 
-<!-- ```javascript
-// const mookh = require('mookh');
 
-// let api = mookh.authorize('mookh');
-// let max = api.users.get(<pk>);
-``` -->
-```javascript
+```Javascript
 let api_url = "https://api.mymookh.com/products/"
 
  var xmlHttp = new XMLHttpRequest();
@@ -405,7 +455,7 @@ print(response.text)
 
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/products/variant/"
@@ -432,6 +482,34 @@ var request = require('request'),
       console.log(body)
     }
   )
+```
+```PHP
+<?php
+$url = 'https://api.mymookh.com/products/variant/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'product' => ' ',
+  'products_metadata' => ' ',
+  'shipping_metadata' => ' ',
+  'promotion_metadata' => ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
 ```
 
 ### POST Parameters
