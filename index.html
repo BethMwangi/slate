@@ -869,6 +869,38 @@ echo $result;
       console.log(body)
     }
   )
+</code></pre><pre class="highlight plaintext"><code>&lt;?php
+$url = 'https://api.mymookh.com/stores/event/public/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'event_name' =&gt; ' ',
+  'event_venue' =&gt; ' ',
+  'event_description' =&gt; ' ',
+  'event_category_fk' =&gt; ' ',
+  'parent_event_id' =&gt; ' ',
+  'event_venue' =&gt; ' ',
+  'store_type_id' =&gt; ' ',
+  'event_category_fk' =&gt; ' ',
+  'store_fk' =&gt; ' ',
+  'store_name' =&gt; ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true); // set post data to true
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?&gt;
 </code></pre><h3 id='post-parameters-3'>POST Parameters</h3><h5 id='required-parameters-4'>Required Parameters</h5>
 <table><thead>
 <tr>
@@ -1001,6 +1033,35 @@ curl -d <span class="s1">'{  "ticket_name": "Color run", "event_fk": "bd0e90a0-1
       console.log(body)
     }
   )
+</code></pre><pre class="highlight plaintext"><code>&lt;?php
+$url = 'https://api.mymookh.com/stores/tickets/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'ticket_name' =&gt; ' ',
+  'event_fk' =&gt; ' ',
+  'ticket_value' =&gt; ' ',
+  'ticket_metadata' =&gt; ' ',
+  'quantity' =&gt; ' ',
+  'tickets_bought' =&gt; ' ',
+  'tickets_available' =&gt; ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true); // set post data to true
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?&gt;
 </code></pre><h3 id='post-parameters-4'>POST Parameters</h3><h5 id='required-parameters-5'>Required Parameters</h5>
 <table><thead>
 <tr>
@@ -1123,22 +1184,22 @@ curl -d <span class="s1">'{
       },
     json : {
         "customer": "mwangi",
-"card": "2332111",
-"store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
-"agent": "Dee",
-"agent_name": "phyl",
-"event_name": "skiza",
-"event": "null",
-"order_items_summary": "null",
-"order_detail": "null",
-"order_status": "",
-"order_number": "92873",
-"currency": "Ksh",
-"order_amount": "90",
-"order_balance": "90",
-"promo_code": "7662728",
-"promo_code_value": "900",
-"payment_method": "MPESA"
+        "card": "2332111",
+        "store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+        "agent": "Dee",
+        "agent_name": "phyl",
+        "event_name": "skiza",
+        "event": "null",
+        "order_items_summary": "null",
+        "order_detail": "null",
+        "order_status": "",
+        "order_number": "92873",
+        "currency": "Ksh",
+        "order_amount": "90",
+        "order_balance": "90",
+        "promo_code": "7662728",
+        "promo_code_value": "900",
+        "payment_method": "MPESA"
     }
   },
     function (error, response, body) {
@@ -1146,6 +1207,35 @@ curl -d <span class="s1">'{
       console.log(body)
     }
   )
+</code></pre><pre class="highlight plaintext"><code>&lt;?php
+$url = 'https://api.mymookh.com/stores/order/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'customer' =&gt; ' ',
+  'card' =&gt; ' ',
+  'store_fk' =&gt; ' ',
+  'agent' =&gt; ' ',
+  'agent_name' =&gt; ' ',
+  'event_name' =&gt; ' ',
+  'payment_method' =&gt; ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?&gt;
 </code></pre><h3 id='post-parameters-5'>POST Parameters</h3>
 <p>The above command returns JSON structured like this:</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -1271,6 +1361,35 @@ curl -d <span class="s1">'{ "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
       console.log(body)
     }
   )
+</code></pre><pre class="highlight plaintext"><code>&lt;?php
+$url = 'https://api.mymookh.com/stores/order/validate_order/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'customer' =&gt; ' ',
+  'card' =&gt; ' ',
+  'store_fk' =&gt; ' ',
+  'agent' =&gt; ' ',
+  'agent_name' =&gt; ' ',
+  'event_name' =&gt; ' ',
+  'order_number' =&gt; ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?&gt;
 </code></pre><h3 id='verify-an-order'>verify an order</h3><h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST https://api.mymookh.com/stores/order/verify_order</code>
 ```shell</p>
@@ -1341,6 +1460,35 @@ curl -d <span class="s1">'{ "customer": "bf3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
       console.log(body)
     }
   )
+</code></pre><pre class="highlight plaintext"><code>&lt;?php
+$url = 'https://api.mymookh.com/stores/order/verify_order/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'customer' =&gt; ' ',
+  'card' =&gt; ' ',
+  'store_fk' =&gt; ' ',
+  'agent' =&gt; ' ',
+  'agent_name' =&gt; ' ',
+  'event_name' =&gt; ' ',
+  'order_number' =&gt; ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?&gt;
 </code></pre><h2 id='retrieve-a-particular-order'>Retrieve a particular order</h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
