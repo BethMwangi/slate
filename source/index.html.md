@@ -519,6 +519,41 @@ var request = require('request'),
   )
 ```
 
+```PHP
+<?php
+$url = 'https://api.mymookh.com/stores/event/public/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'event_name' => ' ',
+  'event_venue' => ' ',
+  'event_description' => ' ',
+  'event_category_fk' => ' ',
+  'parent_event_id' => ' ',
+  'event_venue' => ' ',
+  'store_type_id' => ' ',
+  'event_category_fk' => ' ',
+  'store_fk' => ' ',
+  'store_name' => ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true); // set post data to true
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
+```
+
 ### POST Parameters
 ##### Required Parameters
 
@@ -648,6 +683,38 @@ var request = require('request'),
   )
 ```
 
+```PHP
+<?php
+$url = 'https://api.mymookh.com/stores/tickets/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'ticket_name' => ' ',
+  'event_fk' => ' ',
+  'ticket_value' => ' ',
+  'ticket_metadata' => ' ',
+  'quantity' => ' ',
+  'tickets_bought' => ' ',
+  'tickets_available' => ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true); // set post data to true
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
+```
+
 
 ### POST Parameters
 ##### Required Parameters
@@ -775,22 +842,22 @@ var request = require('request'),
       },
     json : {
         "customer": "mwangi",
-"card": "2332111",
-"store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
-"agent": "Dee",
-"agent_name": "phyl",
-"event_name": "skiza",
-"event": "null",
-"order_items_summary": "null",
-"order_detail": "null",
-"order_status": "",
-"order_number": "92873",
-"currency": "Ksh",
-"order_amount": "90",
-"order_balance": "90",
-"promo_code": "7662728",
-"promo_code_value": "900",
-"payment_method": "MPESA"
+        "card": "2332111",
+        "store_fk": "63546dc4-f314-418a-9ccc-8eba97267499",
+        "agent": "Dee",
+        "agent_name": "phyl",
+        "event_name": "skiza",
+        "event": "null",
+        "order_items_summary": "null",
+        "order_detail": "null",
+        "order_status": "",
+        "order_number": "92873",
+        "currency": "Ksh",
+        "order_amount": "90",
+        "order_balance": "90",
+        "promo_code": "7662728",
+        "promo_code_value": "900",
+        "payment_method": "MPESA"
     }
   },
     function (error, response, body) {
@@ -798,6 +865,38 @@ var request = require('request'),
       console.log(body)
     }
   )
+```
+
+```PHP
+<?php
+$url = 'https://api.mymookh.com/stores/order/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'customer' => ' ',
+  'card' => ' ',
+  'store_fk' => ' ',
+  'agent' => ' ',
+  'agent_name' => ' ',
+  'event_name' => ' ',
+  'payment_method' => ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
 ```
 
 
@@ -920,6 +1019,37 @@ var request = require('request'),
     }
   )
 ```
+```PHP
+<?php
+$url = 'https://api.mymookh.com/stores/order/validate_order/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'customer' => ' ',
+  'card' => ' ',
+  'store_fk' => ' ',
+  'agent' => ' ',
+  'agent_name' => ' ',
+  'event_name' => ' ',
+  'order_number' => ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
+```
 
 
 ### verify an order
@@ -999,6 +1129,38 @@ var request = require('request'),
       console.log(body)
     }
   )
+```
+
+```PHP
+<?php
+$url = 'https://api.mymookh.com/stores/order/verify_order/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'customer' => ' ',
+  'card' => ' ',
+  'store_fk' => ' ',
+  'agent' => ' ',
+  'agent_name' => ' ',
+  'event_name' => ' ',
+  'order_number' => ' '
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
 ```
 
 
