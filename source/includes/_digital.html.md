@@ -48,7 +48,7 @@ print (response.text)
 ```
 
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/digital_content/media/"
@@ -158,7 +158,7 @@ data = {
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/digital_content/album/"
@@ -249,7 +249,7 @@ response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/digital_content/genre/"
@@ -349,7 +349,7 @@ response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/digital_content/media_files/"
@@ -457,7 +457,7 @@ response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/digital_content/artist/"
@@ -531,7 +531,7 @@ print(response.text)
 ```
 
 
-```javascript
+```Javascript
 let api_url = "https://api.mymookh.com/digital_content/"
 
  var xmlHttp = new XMLHttpRequest();
@@ -579,7 +579,7 @@ print(response)
 ```
 
 
-```javascript
+```Javascript
 let api_url = "https://api.mymookh.com/album/<pk>"
 
  var xmlHttp = new XMLHttpRequest();
@@ -619,5 +619,8 @@ This endpoint retrieves an album
 Parameter   | Default     | Description
 ---------   | -------     | -----------
 ID          |  Required      | The ID of the album in UUID format
+
+
+
 
 

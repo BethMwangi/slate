@@ -4,7 +4,7 @@ title: Mookh API Reference
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
   - python
-  - javascript
+  - Javascript
   - PHP
 
 toc_footers:
@@ -47,9 +47,9 @@ Content-Type  |  Only application/json content type is supported.
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
   -H "Authorization: auth"
-``` -->
+```
 
-```javascript
+```Javascript
 let api_url = "https://api.mymookh.com/"
 
  var xmlHttp = new XMLHttpRequest();
@@ -57,6 +57,25 @@ let api_url = "https://api.mymookh.com/"
      xmlHttp.send();
      var response = xmlHttp.responseText;
      return JSON.parse(response);
+```
+
+```PHP
+
+<?php
+$url = "https://api.mymookh.com/";
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);
+$credentials = base64_encode('YOUR_APP_CONSUMER_KEY:YOUR_APP_CONSUMER_SECRET');
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Authorization: Basic '.$credentials));
+
+curl_setopt($curl, CURLOPT_HEADER, true);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+$response = curl_exec($curl);
+
+echo json_decode($response);
+?>
 ```
 
 HTTP requests to the REST API are protected with HTTP Basic authentication
@@ -88,7 +107,7 @@ print(response)
 
 ```
 
-```javascript
+```Javascript
 let api_url = "https://api.mymookh.com/users/user/"
 
  var xmlHttp = new XMLHttpRequest();
@@ -97,6 +116,24 @@ let api_url = "https://api.mymookh.com/users/user/"
      var response = xmlHttp.responseText;
      return JSON.parse(response);
 ```
+
+<!-- ```PHP
+
+<?php
+$url = 'https://api.mymookh.com/users/user/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url.'?'.$params ); //Url together with parameters
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); //Return data instead printing directly in Browser
+curl_setopt($curl, CURLOPT_USERAGENT , "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+
+curl_setopt($curl, CURLOPT_HEADER, true);
+
+
+$response = curl_exec($curl);
+curl_close($curl);
+?>
+``` -->
 
 > The above command returns JSON structured like this:
 
@@ -164,14 +201,8 @@ curl "https://api.mymookh.com/users/user/<pk>/"
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/users/user/<pk>"
 ```
 
-```javascript
-// const mookh = require('mookh');
 
-// let api = mookh.authorize('mookh');
-// let max = api.users.get(<pk>);
-```
-
-```javascript
+``Javascript
 let api_url = "https://api.mymookh.com/users/user/<pk>"
 
  var xmlHttp = new XMLHttpRequest();
@@ -294,7 +325,7 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 ```
 
 
-```javascript
+```Javascript
 let api_url = "https://api.mymookh.com/users/user_roles/"
 
  var xmlHttp = new XMLHttpRequest();
@@ -343,7 +374,7 @@ print (response.text)
 
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/stores/event_category/"
@@ -425,7 +456,7 @@ print (response.text)
 
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/stores/event/public/"
@@ -551,7 +582,7 @@ print (response.text)
 
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/stores/tickets/"
@@ -699,7 +730,7 @@ print (response.text)
 
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/stores/order/"
@@ -827,7 +858,7 @@ print (response.text)
 
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/stores/order/validate_order/"
@@ -907,7 +938,7 @@ print (response.text)
 
 ```
 
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/stores/order/verify_order/"
@@ -965,7 +996,7 @@ curl "https://api.mymookh.com/stores/orders/<pk>/"
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/orders/<pk>/"
 
 ```
-```javascript
+```Javascript
 let api_url = "https://api.mymookh.com/stores/orders/<pk>"
 
  var xmlHttp = new XMLHttpRequest();
@@ -1059,7 +1090,7 @@ data = {
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
-```javascript
+```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
   url = "https://api.mymookh.com/stores/promo_codes/"
@@ -1153,7 +1184,7 @@ curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  
 ```
 
 
-```javascript
+```Javascript
 let api_url = "https://api.mymookh.com/stores/promo_codes/<pk>"
 
  var xmlHttp = new XMLHttpRequest();
