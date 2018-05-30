@@ -1,15 +1,14 @@
-
 # products
 
 The Mookh API lets you do the following with the Product resource.
 
 ### create a product category
+
 ### HTTP Request
 
 `POST https://api.mymookh.com/products/category/`
 
 ```shell
-
 curl -d '{  "name": "phone",
     "description": null,
     "parent": "63546dc4-f314-418a-9ccc-8eba97267499",
@@ -96,35 +95,32 @@ echo $result;
 ```
 
 ### POST Parameters
+
 The above command returns JSON structured like this:
 
 ```json
-
-
 {
-    "id": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
-    "name": "phone",
-    "description": null,
-    "parent": "63546dc4-f314-418a-9ccc-8eba97267499",
-    "category_metadata": {}
+  "id": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+  "name": "phone",
+  "description": null,
+  "parent": "63546dc4-f314-418a-9ccc-8eba97267499",
+  "category_metadata": {}
 }
 ```
 
 ##### Required Parameters
 
-Parameter     | Default    | Description
----------     | -------    | -----------
-name          |  Required  | The category of the product
-
+| Parameter | Default  | Description                 |
+| --------- | -------- | --------------------------- |
+| name      | Required | The category of the product |
 
 ### create a specific product
+
 ### HTTP Request
 
 `POST http://mookh.com/api/products/product/`
 
-
 ```shell
-
 curl -d '{
      "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
     "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
@@ -188,7 +184,7 @@ var request = require('request'),
   )
 ```
 
-```PHP
+```php
 <?php
 $url = 'https://api.mymookh.com/products/product/';
 
@@ -220,38 +216,37 @@ echo $result;
 ```
 
 ### POST Parameters
+
 The above command returns JSON structured like this:
 
 ```json
-
 {
-    "id": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
-    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
-    "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
-    "category_name": "phone",
-    "name": "speaker",
-    "brand": "",
-    "description": "bluetooth speakers",
-    "prices": [],
-    "sku": "1234",
-    "is_published": false,
-    "is_featured": false,
-    "slug": null,
-    "is_returnable": false,
-    "delivery_days": "12",
-    "return_policy": null
+  "id": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+  "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+  "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+  "category_name": "phone",
+  "name": "speaker",
+  "brand": "",
+  "description": "bluetooth speakers",
+  "prices": [],
+  "sku": "1234",
+  "is_published": false,
+  "is_featured": false,
+  "slug": null,
+  "is_returnable": false,
+  "delivery_days": "12",
+  "return_policy": null
 }
 ```
 
 ##### Required Parameters
 
-Parameter     | Default     | Description
----------     | -------     | -----------
-store         |  Required   | The store ID associated with the product created
-category      |  Required   | The product category ID associated with the product
-sku           |  Required   | A unique code associated with a product
-delivery_days  |  Required  | The number of delivery days
-
+| Parameter     | Default  | Description                                         |
+| ------------- | -------- | --------------------------------------------------- |
+| store         | Required | The store ID associated with the product created    |
+| category      | Required | The product category ID associated with the product |
+| sku           | Required | A unique code associated with a product             |
+| delivery_days | Required | The number of delivery days                         |
 
 ## Retrieve a particular product
 
@@ -260,7 +255,6 @@ curl "https://api.mymookh.com/products/product/<pk>/"
   -H "Authorization: auth"
 
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/products/product/<pk>"
-
 ```
 
 ```python
@@ -274,9 +268,7 @@ headers = {'Content-Type': 'application/json',
            'Authorization': 'Bearer {0}'.format(api_token)}
 response = requests.get(api_url({:id}), headers=headers)
 print(response.text)
-
 ```
-
 
 ```Javascript
 let api_url = "https://api.mymookh.com/products/product/<pk>"
@@ -288,6 +280,22 @@ let api_url = "https://api.mymookh.com/products/product/<pk>"
      return JSON.parse(response);
 ```
 
+```php
+<?php
+$url = 'https://api.mymookh.com/products/product/';
+
+$curl = curl_init();
+$params = array("id" => "");
+curl_setopt($curl, CURLOPT_URL, $url.'?'. $params);  //The url of the service
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_USERAGENT , "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+curl_setopt($curl, CURLOPT_HEADER, 0);
+
+$result = curl_exec($curl);
+curl_close($curl);
+
+?>
+```
 
 ### HTTP Request
 
@@ -297,35 +305,33 @@ HTTP/1.1 200 OK
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID        | The ID of the product to retrieve. The ID is in UUID format
+| Parameter | Description                                                 |
+| --------- | ----------------------------------------------------------- |
+| ID        | The ID of the product to retrieve. The ID is in UUID format |
 
 The above command returns JSON structured like this:
 
 ```json
-
 {
-    "id": "3635dc2c-8513-42dc-a81a-3ed1eff68d46",
-    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
-    "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
-    "category_name": "clothing",
-    "name": "dress",
-    "brand": "",
-    "description": "maxi dress",
-    "prices": [],
-    "sku": "1237",
-    "is_published": true,
-    "is_featured": true,
-    "slug": null,
-    "is_returnable": false,
-    "delivery_days": "11",
-    "return_policy": null
+  "id": "3635dc2c-8513-42dc-a81a-3ed1eff68d46",
+  "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+  "category": "af3903ca-5d5c-4afd-9c1f-3f896fc0d5d8",
+  "category_name": "clothing",
+  "name": "dress",
+  "brand": "",
+  "description": "maxi dress",
+  "prices": [],
+  "sku": "1237",
+  "is_published": true,
+  "is_featured": true,
+  "slug": null,
+  "is_returnable": false,
+  "delivery_days": "11",
+  "return_policy": null
 }
 ```
 
 This endpoint retrieves a specific product.
-
 
 ## Retrieve all products
 
@@ -347,9 +353,7 @@ headers = {'Content-Type': 'application/json',
            'Authorization': 'Bearer {0}'.format(api_token)}
 response = requests.get(api_url, headers=headers)
 print(response.text)
-
 ```
-
 
 ```Javascript
 let api_url = "https://api.mymookh.com/products/"
@@ -361,7 +365,21 @@ let api_url = "https://api.mymookh.com/products/"
      return JSON.parse(response);
 ```
 
+```php
+<?php
+$url = 'https://api.mymookh.com/products/';
 
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_USERAGENT , "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+curl_setopt($curl, CURLOPT_HEADER, 0);
+
+$result = curl_exec($curl);
+curl_close($curl);
+
+?>
+```
 
 ### HTTP Request
 
@@ -372,7 +390,6 @@ HTTP/1.1 200 OK
 The above command returns JSON structured like this:
 
 ```json
-
 {
     "id": "619a45b8-84ba-4948-98f0-336476b18b19",
     "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
@@ -409,21 +426,17 @@ The above command returns JSON structured like this:
     "is_featured": false,
     "slug": null
 }
-
-
 ```
+
 This endpoint retrieves a list of products in a particular store.
 
-
-
 ## product variants
+
 ### HTTP Request
 
 `POST https://api.mymookh.com/products/variant/`
 
-
 ```shell
-
 curl -d '{
     "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
     "products_metadata": "",
@@ -433,7 +446,6 @@ curl -d '{
  -H "Content-Type: application/json"
  -X POST "https://api.mymookh.com/products/variant/"
 ```
-
 
 ```python
 import requests
@@ -452,7 +464,6 @@ headers = {'Content-Type': 'application/json',
            'Authorization': 'Bearer {0}'.format(api_token)}
 response = requests.post(api_url, json=data,  headers=headers)
 print(response.text)
-
 ```
 
 ```Javascript
@@ -483,7 +494,8 @@ var request = require('request'),
     }
   )
 ```
-```PHP
+
+```php
 <?php
 $url = 'https://api.mymookh.com/products/variant/';
 
@@ -513,53 +525,50 @@ echo $result;
 ```
 
 ### POST Parameters
+
 The above command returns JSON structured like this:
 
 ```json
-
 {
-    "id": "619a45b8-84ba-4948-98f0-336476b18b19",
-    "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
-    "products_metadata": {},
-    "shipping_metadata": {},
-    "promotion_metadata": {},
-    "thumbnail": null,
-    "quantity": null,
-    "discount": "0.00",
-    "is_published": false,
-    "is_featured": false,
-    "slug": null
+  "id": "619a45b8-84ba-4948-98f0-336476b18b19",
+  "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+  "products_metadata": {},
+  "shipping_metadata": {},
+  "promotion_metadata": {},
+  "thumbnail": null,
+  "quantity": null,
+  "discount": "0.00",
+  "is_published": false,
+  "is_featured": false,
+  "slug": null
 }
-
 ```
 
 ##### Required Parameters
 
-Parameter     | Default     | Description
----------     | -------     | -----------
-product       |  Required   | The product ID associated with the product
-products_metadata |  Required   | metadata refers to the variations of the product in JSON format
-shipping_metadata|         |
-promotion_metadata |       | types of promotions to choose from
-
+| Parameter          | Default  | Description                                                     |
+| ------------------ | -------- | --------------------------------------------------------------- |
+| product            | Required | The product ID associated with the product                      |
+| products_metadata  | Required | metadata refers to the variations of the product in JSON format |
+| shipping_metadata  |          |
+| promotion_metadata |          | types of promotions to choose from                              |
 
 ### POST Parameters
+
 The above command returns JSON structured like this:
 
 ```json
 {
-    "id": "619a45b8-84ba-4948-98f0-336476b18b19",
-    "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
-    "products_metadata": {},
-    "shipping_metadata": {},
-    "promotion_metadata": {},
-    "thumbnail": null,
-    "quantity": null,
-    "discount": "0.00",
-    "is_published": false,
-    "is_featured": false,
-    "slug": null
+  "id": "619a45b8-84ba-4948-98f0-336476b18b19",
+  "product": "a56b8f6f-a86a-4446-bb2f-62d028904c67",
+  "products_metadata": {},
+  "shipping_metadata": {},
+  "promotion_metadata": {},
+  "thumbnail": null,
+  "quantity": null,
+  "discount": "0.00",
+  "is_published": false,
+  "is_featured": false,
+  "slug": null
 }
-
 ```
-

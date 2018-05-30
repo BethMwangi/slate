@@ -1,4 +1,3 @@
-
 # stores
 
 ## Create a store type
@@ -8,19 +7,17 @@
 `POST https://api.mymookh.com/stores/store_type/`
 
 ### POST Parameters
+
 ##### Required Parameters
 
-Parameter  | Default  | Description
----------  | -------  | -----------
-store_name | Required | The store name is required
-description|          | A short description of the store
-store_label|          | The store label is required
-icon       |          | An icon of the store
-
-
+| Parameter   | Default  | Description                      |
+| ----------- | -------- | -------------------------------- |
+| store_name  | Required | The store name is required       |
+| description |          | A short description of the store |
+| store_label |          | The store label is required      |
+| icon        |          | An icon of the store             |
 
 ```python
-
 import requests
 import json
 
@@ -67,6 +64,37 @@ var request = require('request'),
   )
 ```
 
+```php
+<?php
+$url = 'https://api.mymookh.com/stores/store_type/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'store_name' => ' ',
+  'store_label' => ' ',
+  'category_metadata' => ' '
+  "icon": " ",
+  "description": " "
+
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
+```
+
 ## Get All stores types
 
 ```python
@@ -80,7 +108,6 @@ headers = {'Content-Type': 'application/json',
            'Authorization': 'Bearer {0}'.format(api_token)}
 response = requests.get(api_url, headers=headers)
 print(response.text)
-
 ```
 
 ```shell
@@ -88,37 +115,51 @@ curl "https://api.mymookh.com/stores/store_type/"
   -H "Authorization: auth"
 
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/store_type/"
-
 ```
 
 ```javascript
-let api_url = "https://api.mymookh.com/users/store_type/"
+let api_url = "https://api.mymookh.com/stores/store_type/";
 
- var xmlHttp = new XMLHttpRequest();
-     xmlHttp.open( "GET", api_url, false );
-     xmlHttp.send();
-     return xmlHttp.responseText;
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open("GET", api_url, false);
+xmlHttp.send();
+return xmlHttp.responseText;
 ```
 
+```php
+<?php
+$url = 'https://api.mymookh.com/stores/store_type/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_USERAGENT , "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+curl_setopt($curl, CURLOPT_HEADER, 0);
+
+$result = curl_exec($curl);
+curl_close($curl);
+
+?>
+```
 
 The above command returns JSON structured like this:
 
 ```json
 [
-    {
-            "id": "71965c7f-cc49-4815-a5f9-1b454478ac93",
-            "store_name": "Sauti sol",
-            "store_label": "ticketing",
-            "icon": null,
-            "description": "selling music albums"
-        },
-        {
-            "id": "daf67422-0e40-4a6e-969e-7a58406e229a",
-            "store_name": "mymookh",
-            "store_label": "ticketing",
-            "icon": null,
-            "description": "selling tickets"
-        }
+  {
+    "id": "71965c7f-cc49-4815-a5f9-1b454478ac93",
+    "store_name": "Sauti sol",
+    "store_label": "ticketing",
+    "icon": null,
+    "description": "selling music albums"
+  },
+  {
+    "id": "daf67422-0e40-4a6e-969e-7a58406e229a",
+    "store_name": "mymookh",
+    "store_label": "ticketing",
+    "icon": null,
+    "description": "selling tickets"
+  }
 ]
 ```
 
@@ -130,11 +171,9 @@ This endpoint retrieves all store types.
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-store id  | true    | The store id is passed
-
-
+| Parameter | Default | Description            |
+| --------- | ------- | ---------------------- |
+| store id  | true    | The store id is passed |
 
 ## Create a store
 
@@ -200,43 +239,40 @@ var request = require('request'),
 ```
 
 ### POST Parameters
+
 ##### Required Parameters
 
-Parameter  | Default  | Description
----------  | -------  | -----------
-store_name | Required | The store name is required
-description|          | A short description of the store,i.e ticketing
-store_type_fk|  Required | The store type ID in UUID format that links to th estore
-store_type_fk  | Required | The store_type_fk maps the store to its type
-country        | Required | The country of operation , i.e KE, UG
-
-
+| Parameter     | Default  | Description                                              |
+| ------------- | -------- | -------------------------------------------------------- |
+| store_name    | Required | The store name is required                               |
+| description   |          | A short description of the store,i.e ticketing           |
+| store_type_fk | Required | The store type ID in UUID format that links to th estore |
+| store_type_fk | Required | The store_type_fk maps the store to its type             |
+| country       | Required | The country of operation , i.e KE, UG                    |
 
 The above command returns JSON structured like this:
 
 ```json
 {
-    "id": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
-    "manager_fk": "be67ea3a-774c-4cce-9887-a8fdcc3fd54c",
-    "manager_name": "beth wanjiku",
-    "created_by": null,
-    "store_name": "story",
-    "balances": 0,
-    "store_description": null,
-    "store_type_fk": "daf67422-0e40-4a6e-969e-7a58406e229a",
-    "store_type_name": "mymookh",
-    "store_type_description": "selling tickets",
-    "poster": null,
-    "country": "KE",
-    "email": null,
-    "published": false,
-    "store_url": null
+  "id": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+  "manager_fk": "be67ea3a-774c-4cce-9887-a8fdcc3fd54c",
+  "manager_name": "beth wanjiku",
+  "created_by": null,
+  "store_name": "story",
+  "balances": 0,
+  "store_description": null,
+  "store_type_fk": "daf67422-0e40-4a6e-969e-7a58406e229a",
+  "store_type_name": "mymookh",
+  "store_type_description": "selling tickets",
+  "poster": null,
+  "country": "KE",
+  "email": null,
+  "published": false,
+  "store_url": null
 }
 ```
 
 ## Get a Specific store
-
-
 
 ```python
 import requests
@@ -256,39 +292,53 @@ curl "https://api.mymookh.com/stores/store/<pk>/"
   -H "Authorization: auth"
 
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/stores/store/<pk>/"
-
 ```
+
 ```javascript
-let api_url = "https://api.mymookh.com/stores/store/<pk>"
+let api_url = "https://api.mymookh.com/stores/store/<pk>";
 
- var xmlHttp = new XMLHttpRequest();
-     xmlHttp.open( "GET", api_url, false );
-     xmlHttp.send();
-     var response = xmlHttp.responseText;
-     return JSON.parse(response);
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open("GET", api_url, false);
+xmlHttp.send();
+var response = xmlHttp.responseText;
+return JSON.parse(response);
 ```
 
+```php
+<?php
+$url = 'https://api.mymookh.com/stores/store/';
 
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_USERAGENT , "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+curl_setopt($curl, CURLOPT_HEADER, 0);
+
+$result = curl_exec($curl);
+curl_close($curl);
+
+?>
+```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-    "id": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
-    "manager_fk": "be67ea3a-774c-4cce-9887-a8fdcc3fd54c",
-    "manager_name": "beth wanjiku",
-    "created_by": null,
-    "store_name": "sautisol",
-    "balances": 0,
-    "store_description": null,
-    "store_type_fk": "daf67422-0e40-4a6e-969e-7a58406e229a",
-    "store_type_name": "mymookh",
-    "store_type_description": "selling tickets",
-    "poster": null,
-    "country": "KE",
-    "email": null,
-    "published": false,
-    "store_url": null
+  "id": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+  "manager_fk": "be67ea3a-774c-4cce-9887-a8fdcc3fd54c",
+  "manager_name": "beth wanjiku",
+  "created_by": null,
+  "store_name": "sautisol",
+  "balances": 0,
+  "store_description": null,
+  "store_type_fk": "daf67422-0e40-4a6e-969e-7a58406e229a",
+  "store_type_name": "mymookh",
+  "store_type_description": "selling tickets",
+  "poster": null,
+  "country": "KE",
+  "email": null,
+  "published": false,
+  "store_url": null
 }
 ```
 
@@ -301,6 +351,6 @@ STATUS 200 OK
 
 ### URL Parameters
 
-Parameter | Description
---------- | -----------
-ID        | The ID of the store is passed in UUID format
+| Parameter | Description                                  |
+| --------- | -------------------------------------------- |
+| ID        | The ID of the store is passed in UUID format |

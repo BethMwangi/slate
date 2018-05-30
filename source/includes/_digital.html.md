@@ -1,14 +1,12 @@
-
 # Digital content
 
 ## create digital media file
+
 ### HTTP Request
 
 `POST https://api.mymookh.com/digital_content/media/`
 
-
 ```shell
-
 curl -d '{
     "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
     "album": [],
@@ -47,7 +45,6 @@ response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
 
-
 ```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
@@ -82,9 +79,41 @@ var request = require('request'),
   )
 ```
 
-### POST Parameters
-The above command returns JSON structured like this:
+```php
+<?php
+$url = 'https://api.mymookh.com/digital_content/media/';
 
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'store' => ' ',
+  'album' => ' ',
+  'artist' => ' '
+  "icon": " ",
+  "description": " ",
+  "country":""
+
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
+```
+
+### POST Parameters
+
+The above command returns JSON structured like this:
 
 ```json
 {
@@ -104,27 +133,24 @@ The above command returns JSON structured like this:
     }
 }  "slug": null
 }
-
 ```
 
 ##### Required Parameters
 
-Parameter     | Default     | Description
----------     | -------     | -----------
-store       |  Required   | The store ID associated with the media type
-genre       |  Required   |  the genre of the media type
-metadata    |  Required   |  JSON field
-author      |  Required   | name of the artist
-
-
+| Parameter | Default  | Description                                 |
+| --------- | -------- | ------------------------------------------- |
+| store     | Required | The store ID associated with the media type |
+| genre     | Required | the genre of the media type                 |
+| metadata  | Required | JSON field                                  |
+| author    | Required | name of the artist                          |
 
 ## create digital album
+
 ### HTTP Request
 
 `POST https://api.mymookh.com/digital_content/album/`
 
 ```shell
-
 curl -d '{
      "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
     "genre": null,
@@ -158,6 +184,7 @@ data = {
 response = requests.post(api_url, json = data, headers=headers)
 print (response.text)
 ```
+
 ```Javascript
 var request = require('request'),
   oauth_token = "Access_Token"
@@ -190,43 +217,75 @@ var request = require('request'),
   )
 ```
 
+```php
+<?php
+$url = 'https://api.mymookh.com/digital_content/album/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'store' => ' ',
+  'album' => ' ',
+  'artist' => ' '
+  "icon": " ",
+  "description": " ",
+  "country":""
+
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
+```
+
 ### POST Parameters
+
 The above command returns JSON structured like this:
 
 ```json
 {
-    "id": "9e1390c1-5160-4fbe-ac04-9d104e2b0f75",
-    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
-    "genre": null,
-    "name": "",
-    "description": "coldplay we are young",
-    "thumbnail": "",
-    "publish_date": "2018-05-22T21:54:00.861162Z",
-    "country": "AO",
-    "author": "",
-    "prices": [],
-    "is_published": false
+  "id": "9e1390c1-5160-4fbe-ac04-9d104e2b0f75",
+  "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+  "genre": null,
+  "name": "",
+  "description": "coldplay we are young",
+  "thumbnail": "",
+  "publish_date": "2018-05-22T21:54:00.861162Z",
+  "country": "AO",
+  "author": "",
+  "prices": [],
+  "is_published": false
 }
-
 ```
 
 ##### Required Parameters
 
-Parameter     | Default     | Description
----------     | -------     | -----------
-store       |  Required   | The store ID associated with the media type
-genre       |             |  the genre of the media type
-description |  Required |  album description
-author      |  Required   | name of the artist
-country     |  Required   | country of origin, i.e KE
+| Parameter   | Default  | Description                                 |
+| ----------- | -------- | ------------------------------------------- |
+| store       | Required | The store ID associated with the media type |
+| genre       |          | the genre of the media type                 |
+| description | Required | album description                           |
+| author      | Required | name of the artist                          |
+| country     | Required | country of origin, i.e KE                   |
 
 ## create genre
+
 ### HTTP Request
 
 `POST https://api.mymookh.com/digital_content/genre/`
 
 ```shell
-
 curl -d '{
      "name": "hiphop"
 }'
@@ -275,31 +334,57 @@ var request = require('request'),
   )
 ```
 
+```php
+<?php
+$url = 'https://api.mymookh.com/digital_content/genre/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'name' => ' ',
+
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
+```
+
 ### POST Parameters
+
 The above command returns JSON structured like this:
 
 ##### Required Parameters
 
-Parameter   | Default     | Description
----------   | -------     | -----------
-name        |  Required   | genre of media files
-
+| Parameter | Default  | Description          |
+| --------- | -------- | -------------------- |
+| name      | Required | genre of media files |
 
 ```json
 {
-    "id": "04a88c8e-b370-4ce5-9c22-a1700618deb4",
-    "name": "hiphop"
+  "id": "04a88c8e-b370-4ce5-9c22-a1700618deb4",
+  "name": "hiphop"
 }
-
 ```
 
 ## create a media_file
+
 ### HTTP Request
 
 `POST https://api.mymookh.com/digital_content/media_files/`
 
 ```shell
-
 curl -d '{
     "name": "Gods plan",
     "digital_media": "c25ba93c-fe98-46e3-b027-922820246f99",
@@ -319,7 +404,6 @@ curl -d '{
  -H "Content-Type: application/json"
  -X POST "https://api.mymookh.com/digital_content/media_files/"
 ```
-
 
 ```python
 import requests
@@ -388,41 +472,71 @@ var request = require('request'),
   )
 ```
 
+```php
+<?php
+$url = 'https://api.mymookh.com/digital_content/media_files/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'name' => ' ',
+  'digital_media' => ' ',
+  'media_type' => ' '
+  "description": " ",
+  "media_format": " ",
+  "publish_date":" "
+
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
+```
 
 ### POST Parameters
+
 The above command returns JSON structured like this:
 
 ##### Required Parameters
 
-Parameter   | Default     | Description
----------   | -------     | -----------
-name        |  Required   | name asociated with the media files
-digital_media |  Required   | i.e music
-media_type |    Required     | i.e MP3, MP4
-publish__date |    Required  | Date file is posted
-metadata |    Required  | A JSON field that captures the media file data
-
+| Parameter       | Default  | Description                                    |
+| --------------- | -------- | ---------------------------------------------- |
+| name            | Required | name asociated with the media files            |
+| digital_media   | Required | i.e music                                      |
+| media_type      | Required | i.e MP3, MP4                                   |
+| publish\_\_date | Required | Date file is posted                            |
+| metadata        | Required | A JSON field that captures the media file data |
 
 ```json
 {
-    "id": "5dbf07b1-0922-47d2-9314-3aac87b8ec2b",
-    "name": "God's plan",
-    "digital_media": "c25ba93c-fe98-46e3-b027-922820246f99",
-    "media_type": "AUDIO",
-    "media_format": "mp3",
-    "description": "",
-    "file": "",
-    "media_player_url": "",
-    "thumbnail": "",
-    "publish_date": "2018-05-22T22:12:22.643277Z",
-    "is_published": true,
-    "metadata": {
-        "price": "9.20",
-        "size": "20mb"
-    },
-    "prices": []
+  "id": "5dbf07b1-0922-47d2-9314-3aac87b8ec2b",
+  "name": "God's plan",
+  "digital_media": "c25ba93c-fe98-46e3-b027-922820246f99",
+  "media_type": "AUDIO",
+  "media_format": "mp3",
+  "description": "",
+  "file": "",
+  "media_player_url": "",
+  "thumbnail": "",
+  "publish_date": "2018-05-22T22:12:22.643277Z",
+  "is_published": true,
+  "metadata": {
+    "price": "9.20",
+    "size": "20mb"
+  },
+  "prices": []
 }
-
 ```
 
 ## Artist
@@ -432,7 +546,6 @@ metadata |    Required  | A JSON field that captures the media file data
 `POST https://api.mymookh.com/digital_content/artist/`
 
 ```shell
-
 curl -d '{
     "user": "a9cfe48c-84fe-4d57-932d-db17d071d937",
     "stage_name": "Drake"
@@ -484,27 +597,53 @@ var request = require('request'),
   )
 ```
 
-### POST Parameters
-The above command returns JSON structured like this:
+```php
+<?php
+$url = 'https://api.mymookh.com/digital_content/artist/';
 
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);  //The url of the service
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer ACCESS_TOKEN'));
+
+$curl_post_data = array(
+  //Fill in the request parameters with valid values
+  'user' => ' ',
+  'stage_name' => ' ',
+
+);
+
+$data_string = json_encode($curl_post_data);
+
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string); //post data
+
+$result = curl_exec($curl);
+print_r($result);
+
+echo $result;
+?>
+```
+
+### POST Parameters
+
+The above command returns JSON structured like this:
 
 ##### Required Parameters
 
-Parameter   | Default     | Description
----------   | -------     | -----------
-ID        |  Required   | Generated when creating an artist
-User      |  Required   | PimaryKeyRelated Field, this fields takes the default authenticated user/ store manager
-stage_name |    Required   | The name of the artist
+| Parameter  | Default  | Description                                                                             |
+| ---------- | -------- | --------------------------------------------------------------------------------------- |
+| ID         | Required | Generated when creating an artist                                                       |
+| User       | Required | PimaryKeyRelated Field, this fields takes the default authenticated user/ store manager |
+| stage_name | Required | The name of the artist                                                                  |
 
 ```json
 {
-    "id": "e3855c1a-c4e7-4641-975e-6857df14881e",
-    "user": "a9cfe48c-84fe-4d57-932d-db17d071d937",
-    "stage_name": "Drake"
+  "id": "e3855c1a-c4e7-4641-975e-6857df14881e",
+  "user": "a9cfe48c-84fe-4d57-932d-db17d071d937",
+  "stage_name": "Drake"
 }
-
 ```
-
 
 ## Get a list of digital content
 
@@ -513,7 +652,6 @@ curl "https://api.mymookh.com/digital_content"
   -H "Authorization: auth"
 
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/digital_content/"
-
 ```
 
 ```python
@@ -527,9 +665,7 @@ headers = {'Content-Type': 'application/json',
            'Authorization': 'Bearer {0}'.format(api_token)}
 response = requests.get(api_url, headers=headers)
 print(response.text)
-
 ```
-
 
 ```Javascript
 let api_url = "https://api.mymookh.com/digital_content/"
@@ -541,10 +677,25 @@ let api_url = "https://api.mymookh.com/digital_content/"
      return JSON.parse(response);
 ```
 
+```php
+<?php
+$url = 'https://api.mymookh.com/digital_content/';
+
+$curl = curl_init();
+curl_setopt($curl, CURLOPT_URL, $url);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_USERAGENT , "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+curl_setopt($curl, CURLOPT_HEADER, 0);
+
+$result = curl_exec($curl);
+curl_close($curl);
+
+?>
+```
+
 The above command returns JSON structured like this:
 
 ```json
-
 
 ```
 
@@ -554,7 +705,6 @@ This endpoint retrieves a list of all digital content.
 
 `GET https://api.mymookh.com/digital_content/`
 
-
 ## Get a particular album
 
 ```shell
@@ -562,7 +712,6 @@ curl "https://api.mymookh.com/album/<pk>"
   -H "Authorization: auth"
 
 curl -X GET -H "Content-Type: application/json" -H  "Accept: application/json"  "https://api.mymookh.com/album/<pk>"
-
 ```
 
 ```python
@@ -578,7 +727,6 @@ response = requests.get(api_url({:id}), data=data)
 print(response)
 ```
 
-
 ```Javascript
 let api_url = "https://api.mymookh.com/album/<pk>"
 
@@ -589,23 +737,39 @@ let api_url = "https://api.mymookh.com/album/<pk>"
      return JSON.parse(response);
 ```
 
->The above command returns JSON structured like this:
+```php
+<?php
+$url = 'https://api.mymookh.com/album/';
+
+$curl = curl_init();
+$params = array("id" => "");
+curl_setopt($curl, CURLOPT_URL, $url.'?'. $params);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($curl, CURLOPT_USERAGENT , "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1)");
+curl_setopt($curl, CURLOPT_HEADER, 0);
+
+$result = curl_exec($curl);
+curl_close($curl);
+
+?>
+```
+
+> The above command returns JSON structured like this:
 
 ```json
 {
-    "id": "9e1390c1-5160-4fbe-ac04-9d104e2b0f75",
-    "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
-    "genre": null,
-    "name": "",
-    "description": "coldplay we are young",
-    "thumbnail": "",
-    "publish_date": "2018-05-22T21:54:00.861162Z",
-    "country": "AO",
-    "author": "",
-    "prices": [],
-    "is_published": false
+  "id": "9e1390c1-5160-4fbe-ac04-9d104e2b0f75",
+  "store": "7b0e39bf-44c8-44da-8409-a0a2b8fe9263",
+  "genre": null,
+  "name": "",
+  "description": "coldplay we are young",
+  "thumbnail": "",
+  "publish_date": "2018-05-22T21:54:00.861162Z",
+  "country": "AO",
+  "author": "",
+  "prices": [],
+  "is_published": false
 }
-
 ```
 
 This endpoint retrieves an album
@@ -616,11 +780,6 @@ This endpoint retrieves an album
 
 ##### Required Parameters
 
-Parameter   | Default     | Description
----------   | -------     | -----------
-ID          |  Required      | The ID of the album in UUID format
-
-
-
-
-
+| Parameter | Default  | Description                        |
+| --------- | -------- | ---------------------------------- |
+| ID        | Required | The ID of the album in UUID format |
